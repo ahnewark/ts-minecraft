@@ -1,5 +1,5 @@
 import Random from "../../../util/Random.js";
-import Long from "../../../../../../../libraries/long.js";
+import Long from "long";
 
 export default class Generator {
 

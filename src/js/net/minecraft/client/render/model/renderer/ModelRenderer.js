@@ -1,6 +1,6 @@
 import Polygon from "./Polygon.js";
 import Vertex from "./Vertex.js";
-import * as THREE from "../../../../../../../../libraries/three.module.js";
+import * as THREE from "three";
 
 export default class ModelRenderer {
 

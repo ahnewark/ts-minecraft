@@ -6,7 +6,7 @@ import Tessellator from "./Tessellator.js";
 import ChunkSection from "../world/ChunkSection.js";
 import Random from "../../util/Random.js";
 import Vector3 from "../../util/Vector3.js";
-import * as THREE from "../../../../../../libraries/three.module.js";
+import * as THREE from "three";
 
 export default class WorldRenderer {
 

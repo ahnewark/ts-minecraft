@@ -3,7 +3,7 @@ import GuiButton from "../widgets/GuiButton.js";
 import World from "../../world/World.js";
 import GuiTextField from "../widgets/GuiTextField.js";
 import Random from "../../../util/Random.js";
-import Long from "../../../../../../../libraries/long.js";
+import Long from "long";
 import ChunkProviderGenerate from "../../world/provider/ChunkProviderGenerate.js";
 import PlayerController from "../../network/controller/PlayerController.js";
 

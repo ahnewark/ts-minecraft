@@ -1,8 +1,8 @@
 import GuiScreen from "../GuiScreen.js";
 import GuiButton from "../widgets/GuiButton.js";
 import GuiOptions from "./GuiOptions.js";
-import * as THREE from "../../../../../../../libraries/three.module.js";
-import {BackSide} from "../../../../../../../libraries/three.module.js";
+import * as THREE from "three";
+import {BackSide} from "three";
 import MathHelper from "../../../util/MathHelper.js";
 import Minecraft from "../../Minecraft.js";
 import GuiCreateWorld from "./GuiCreateWorld.js";

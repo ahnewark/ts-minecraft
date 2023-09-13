@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "lib": [
+      "es6",
+      "dom",
+      "dom.iterable",
+      "DOM",
+      "DOM.Iterable",
+      "ES2015",
+      "ES2020",
+      "ES2020.BigInt",
+      "ES2021",
+    ],
+    "module": "es6",
+    "removeComments": true,
+    "sourceMap": true,
+    "strict": false,
+    "target": "ES2020",
+    "outDir": "dist",
+    "skipLibCheck": false,
+    "allowJs": true,
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

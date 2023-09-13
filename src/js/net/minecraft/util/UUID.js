@@ -1,4 +1,4 @@
-import Long from "../../../../../libraries/long.js";
+import Long from "long";
 import Random from "./Random.js";
 
 export default class UUID {

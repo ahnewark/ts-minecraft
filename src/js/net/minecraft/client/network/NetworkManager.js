@@ -1,8 +1,8 @@
 import ByteBuf from "./util/ByteBuf.js";
 import PacketRegistry from "./PacketRegistry.js";
 import ProtocolState from "./ProtocolState.js";
-import {require} from "../../../../Start.js";
 import MissingPackets from "../../util/MissingPackets.js";
+import pako from "pako";
 
 export default class NetworkManager {
 
@@ -20,7 +20,6 @@ export default class NetworkManager {
 
         this.queue = [];
 
-        this.pako = require("pako");
         this.compressionThreshold = 0;
 
         this.carryBuffer = [];
@@ -97,7 +96,7 @@ export default class NetworkManager {
         if (this.compressionThreshold !== 0) {
             let length = buffer.length();
             if (length > this.compressionThreshold) {
-                let compressed = this.pako.deflate(buffer.getArray(), {
+                let compressed = pako.deflate(buffer.getArray(), {
                     chunkSize: 8192
                 });
 
@@ -190,7 +189,7 @@ export default class NetworkManager {
                 }
 
                 // Decompress
-                buffer = new ByteBuf(this.pako.inflate(new Uint8Array(buffer.getSlicedArray()), {
+                buffer = new ByteBuf(pako.inflate(new Uint8Array(buffer.getSlicedArray()), {
                     chunkSize: 8192
                 }));
 

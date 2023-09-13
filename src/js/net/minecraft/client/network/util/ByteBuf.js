@@ -1,9 +1,9 @@
-import Long from "../../../../../../../libraries/long.js";
+import Long from "long";
 import BlockPosition from "../../../util/BlockPosition.js";
 import UUID from "../../../util/UUID.js";
-import {format} from "../../../../../../../libraries/chat.js";
 import Vector3 from "../../../util/Vector3.js";
 import NBTIO from "../../../nbt/NBTIO.js";
+import format from "mc-chat-format";
 
 export default class ByteBuf {
 
@@ -225,7 +225,7 @@ export default class ByteBuf {
         this.writeLong(uuid.getMostSignificantBits());
         this.writeLong(uuid.getLeastSignificantBits());
     }
-
+    
     readTextComponent() {
         return format(JSON.parse(this.readString(32767)));
     }

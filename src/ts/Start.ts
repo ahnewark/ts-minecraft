@@ -29,8 +29,8 @@ class Start {
         });
     }
 
-    launch(canvasWrapperId) {
-        this.loadTextures([
+    async launch(canvasWrapperId) {
+        const resources = await this.loadTextures([
             "misc/grasscolor.png",
             "gui/font.png",
             "gui/gui.png",
@@ -48,10 +48,9 @@ class Start {
             "gui/title/background/panorama_4.png",
             "gui/title/background/panorama_5.png",
             "gui/container/creative.png"
-        ]).then((resources) => {
-            // Launch actual game on canvas
-            window.app = new Minecraft(canvasWrapperId, resources);
-        });
+        ]);
+        
+        window.app = new Minecraft(canvasWrapperId, resources);
     }
 }
 
@@ -64,11 +63,8 @@ window.addEventListener('pageshow', function (event) {
         }
     } else {
         // Launch game
-        new Start().launch("canvas-container");
+        new Start().launch("canvas-container").catch((e) => {
+            console.error(e);
+        });
     }
 });
-
-// Don't think we need this.
-// export function require(module) {
-//     return window[module];
-// }

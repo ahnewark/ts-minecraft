@@ -7,7 +7,7 @@ import EnumBlockFace from "../../util/EnumBlockFace.js";
 import Vector3 from "../../util/Vector3.js";
 import Vector4 from "../../util/Vector4.js";
 import MetadataChunkBlock from "../../util/MetadataChunkBlock.js";
-import * as THREE from "../../../../../../libraries/three.module.js";
+import * as THREE from "three";
 
 export default class World {
 

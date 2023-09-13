@@ -1,5 +1,5 @@
 import ByteBuf from "./ByteBuf.js";
-import {require} from "../../../../../Start.js";
+import sha1 from "sha1";
 
 export default class Authentication {
 
@@ -17,7 +17,7 @@ export default class Authentication {
 
     createServerHash(serverId, secretKey, publicKey) {
         // Create hash
-        let bytes = require("sha1").create()
+        let bytes = sha1.create()
             .update(new TextEncoder().encode(serverId))
             .update(secretKey)
             .update(new Uint8Array(publicKey))

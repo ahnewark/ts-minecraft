@@ -1,5 +1,5 @@
 import Entity from "../../entity/Entity.js";
-import * as THREE from "../../../../../../../libraries/three.module.js";
+import * as THREE from "three";
 import Tessellator from "../Tessellator.js";
 
 export default class Particle extends Entity {

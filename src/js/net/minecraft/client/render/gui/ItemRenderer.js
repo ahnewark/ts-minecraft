@@ -1,4 +1,4 @@
-import * as THREE from "../../../../../../../libraries/three.module.js";
+import * as THREE from "three";
 
 export default class ItemRenderer {
 

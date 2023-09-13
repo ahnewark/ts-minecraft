@@ -1,6 +1,6 @@
 import Random from "../../../util/Random.js";
 import ByteBuf from "./ByteBuf.js";
-import {require} from "../../../../../Start.js";
+import { parse } from "asn1.js"
 
 export default class CryptManager {
 
@@ -12,7 +12,7 @@ export default class CryptManager {
 
     static encryptRSA(publicKey, data) {
         // Parse asn1 public key
-        let asn1 = require("ASN1").parse(new Uint8Array(publicKey))
+        let asn1 = parse(new Uint8Array(publicKey))
         let bigintModArith = require("bigint-mod-arith");
 
         // Extract n and e of the public key

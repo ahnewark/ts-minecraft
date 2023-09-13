@@ -1,4 +1,5 @@
-import Command from "../Command.js";
+import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft";
+import Command from "../Command";
 
 export default class TimeCommand extends Command {
 
@@ -6,34 +7,34 @@ export default class TimeCommand extends Command {
         super("time", "<set|add> <value>", "Change the time of the world")
     }
 
-    execute(minecraft, args) {
+    execute(minecraft: Minecraft, args: string[]) {
         if (args.length !== 2) {
             return false;
         }
 
         let action = args[0];
-        let value = args[1];
 
         if (action === "add") {
-            if (isNaN(value)) {
+            if (isNaN(parseInt(args[1])))
                 return false;
-            } else {
-                value = parseInt(value);
-            }
+
+            let value = parseInt(args[1]);
 
             minecraft.world.time += value;
             minecraft.addMessageToChat("Added " + value + " to the time");
         } else if (action === "set") {
-            if (isNaN(value)) {
-                if (value === "day") {
+            let value: number;
+
+            if (isNaN(parseInt(args[1]))) {
+                if (args[1] === "day") {
                     value = 1000;
-                } else if (value === "night") {
+                } else if (args[1] === "night") {
                     value = 13000;
                 } else {
                     return false;
                 }
             } else {
-                value = parseInt(value);
+                value = parseInt(args[1]);
             }
 
             minecraft.world.time = value;

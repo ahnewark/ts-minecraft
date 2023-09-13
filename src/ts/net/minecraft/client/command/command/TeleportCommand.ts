@@ -1,12 +1,13 @@
-import Command from "../Command.js";
+import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft";
+import Command from "../Command";
 
 export default class TeleportCommand extends Command {
 
     constructor() {
-        super("tp", "<x> <y> <y>", "Teleport to a position")
+        super("tp", "<x> <y> <z>", "Teleport to a position")
     }
 
-    execute(minecraft, args) {
+    execute(minecraft: Minecraft, args: string[]) {
         if (args.length !== 3) {
             return false;
         }

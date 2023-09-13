@@ -16,13 +16,13 @@ import GuiLoadingScreen from "./gui/screens/GuiLoadingScreen.js";
 import * as THREE from "three";
 import ParticleRenderer from "./render/particle/ParticleRenderer.js";
 import GuiChat from "./gui/screens/GuiChat.js";
-import CommandHandler from "./command/CommandHandler.js";
 import GuiContainerCreative from "./gui/screens/container/GuiContainerCreative.js";
 import GameProfile from "../util/GameProfile.js";
 import UUID from "../util/UUID.js";
 import FocusStateType from "../util/FocusStateType.js";
 import Session from "../util/Session.js";
 import PlayerControllerMultiplayer from "./network/controller/PlayerControllerMultiplayer.js";
+import CommandHandler from "../../../../ts/net/minecraft/client/command/CommandHandler.js";
 
 export default class Minecraft {
 

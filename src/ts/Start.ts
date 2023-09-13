@@ -1,26 +1,31 @@
-import Minecraft from './net/minecraft/client/Minecraft.js';
+import Minecraft from '../js/net/minecraft/client/Minecraft.js';
 import * as aesjs from '../../libraries/aes.js';
+
+declare global {
+    interface Window { app: Minecraft; }
+}
 
 class Start {
 
-    loadTextures(textures) {
-        let resources = [];
+    private resources: { [texturePath: string]: HTMLImageElement } = {};
+
+    loadTextures(textures: string[]) {
         let index = 0;
 
         return textures.reduce((currentPromise, texturePath) => {
             return currentPromise.then(() => {
-                return new Promise((resolve, reject) => {
+                return new Promise<void>((resolve, reject) => {
                     // Load texture
                     let image = new Image();
                     image.src = "src/resources/" + texturePath;
                     image.onload = () => resolve();
-                    resources[texturePath] = image;
+                    this.resources[texturePath] = image;
 
                     index++;
                 });
             });
         }, Promise.resolve()).then(() => {
-            return resources;
+            return this.resources;
         });
     }
 
@@ -63,6 +68,7 @@ window.addEventListener('pageshow', function (event) {
     }
 });
 
-export function require(module) {
-    return window[module];
-}
+// Don't think we need this.
+// export function require(module) {
+//     return window[module];
+// }

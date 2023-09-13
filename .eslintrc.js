@@ -17,6 +17,7 @@ module.exports = {
     "plugins": [
         "@typescript-eslint"
     ],
+    "ignorePatterns": ['*.js'],
     "rules": {
         // Most of these are disabled because jree or minecraft dont follow them.
         "prefer-const": "off",

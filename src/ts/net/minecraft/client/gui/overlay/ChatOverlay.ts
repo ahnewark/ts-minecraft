@@ -1,18 +1,22 @@
-import Gui from "../Gui.js";
-import ChatLine from "../../../util/ChatLine.js";
-import GuiChat from "../screens/GuiChat.js";
-import MathHelper from "../../../util/MathHelper.js";
+import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
+import GuiChat from "../../../../../../js/net/minecraft/client/gui/screens/GuiChat";
+import ChatLine from "../../../../../../js/net/minecraft/util/ChatLine";
+import MathHelper from "../../../../../../js/net/minecraft/util/MathHelper";
+import Gui from "../Gui";
 
 export default class ChatOverlay extends Gui {
 
-    constructor(minecraft) {
+    private messages: ChatLine[];
+    private sentHistory: string[];
+
+    constructor(minecraft: Minecraft) {
         super(minecraft);
 
         this.messages = [];
         this.sentHistory = [];
     }
 
-    render(stack, mouseX, mouseY, partialTicks) {
+    render(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         let chatOpen = this.minecraft.currentScreen instanceof GuiChat;
 
         for (let i = 0; i < this.messages.length; i++) {
@@ -43,11 +47,11 @@ export default class ChatOverlay extends Gui {
         }
     }
 
-    addMessage(message) {
+    addMessage(message: string) {
         this.messages.splice(0, 0, new ChatLine(message));
     }
 
-    addMessageToSentHistory(message) {
+    addMessageToSentHistory(message: string) {
         this.sentHistory.splice(0, 0, message);
     }
 

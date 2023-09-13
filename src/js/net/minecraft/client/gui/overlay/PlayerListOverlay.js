@@ -1,4 +1,4 @@
-import Gui from "../Gui.js";
+import Gui from "../../../../../../ts/net/minecraft/client/gui/Gui.js";
 import FontRenderer from "../../render/gui/FontRenderer.js";
 
 export default class PlayerListOverlay extends Gui {

@@ -1,4 +1,4 @@
-import Gui from "../Gui.js";
+import Gui from "../../../../../../ts/net/minecraft/client/gui/Gui.js";
 
 export default class GuiButton extends Gui {
 

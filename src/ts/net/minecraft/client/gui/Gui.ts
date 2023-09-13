@@ -1,34 +1,38 @@
-import Point from "../render/isometric/Point.js";
-import IsometricRenderer from "../render/isometric/IsometricRenderer.js";
-import EnumBlockFace from "../../util/EnumBlockFace.js";
+import Minecraft from "../../../../../js/net/minecraft/client/Minecraft";
+import IsometricRenderer from "../../../../../js/net/minecraft/client/render/isometric/IsometricRenderer";
+import Point from "../../../../../js/net/minecraft/client/render/isometric/Point";
+import Triangle from "../../../../../js/net/minecraft/client/render/isometric/Triangle";
+import Block from "../../../../../js/net/minecraft/client/world/block/Block";
+import EnumBlockFace from "../../../../../js/net/minecraft/util/EnumBlockFace";
 
 export default class Gui {
+    protected minecraft: Minecraft;
 
-    constructor(minecraft = null) {
+    constructor(minecraft: Minecraft) {
         this.minecraft = minecraft;
     }
 
-    getTexture(id) {
+    getTexture(id: string) {
         return this.minecraft.resources[id];
     }
 
-    drawCenteredString(stack, string, x, y, color = -1) {
+    drawCenteredString(stack: CanvasRenderingContext2D, string: string, x: number, y: number, color = -1) {
         this.minecraft.fontRenderer.drawString(stack, string, x - this.getStringWidth(stack, string) / 2, y, color);
     }
 
-    drawRightString(stack, string, x, y, color = -1, shadow = true) {
+    drawRightString(stack: CanvasRenderingContext2D, string: string, x: number, y: number, color = -1, shadow = true) {
         this.minecraft.fontRenderer.drawString(stack, string, x - this.getStringWidth(stack, string), y, color, shadow);
     }
 
-    drawString(stack, string, x, y, color = -1, shadow = true) {
+    drawString(stack: CanvasRenderingContext2D, string: string, x: number, y: number, color = -1, shadow = true) {
         this.minecraft.fontRenderer.drawString(stack, string, x, y, color, shadow);
     }
 
-    getStringWidth(stack, string) {
+    getStringWidth(stack: CanvasRenderingContext2D, string: string) {
         return this.minecraft.fontRenderer.getStringWidth(string);
     }
 
-    drawRect(stack, left, top, right, bottom, color, alpha = 1) {
+    drawRect(stack: CanvasRenderingContext2D, left: number, top: number, right: number, bottom: number, color: string, alpha = 1) {
         stack.save();
         stack.fillStyle = color;
         stack.globalAlpha = alpha;
@@ -36,7 +40,7 @@ export default class Gui {
         stack.restore();
     }
 
-    drawGradientRect(stack, left, top, right, bottom, color1, color2) {
+    drawGradientRect(stack: CanvasRenderingContext2D, left: number, top: number, right: number, bottom: number, color1: string, color2: string) {
         let gradient = stack.createLinearGradient(left + (right - left) / 2, top, left + (right - left) / 2, bottom - top);
         gradient.addColorStop(0, color1);
         gradient.addColorStop(1, color2);
@@ -44,15 +48,15 @@ export default class Gui {
         stack.fillRect(left, top, right - left, bottom - top);
     }
 
-    drawTexture(stack, texture, x, y, width, height, alpha = 1.0) {
+    drawTexture(stack: CanvasRenderingContext2D, texture: CanvasImageSource, x: number, y: number, width: number, height: number, alpha = 1.0) {
         Gui.drawSprite(stack, texture, 0, 0, 256, 256, x, y, width, height, alpha);
     }
 
-    drawSprite(stack, texture, spriteX, spriteY, spriteWidth, spriteHeight, x, y, width, height, alpha = 1.0) {
+    drawSprite(stack: CanvasRenderingContext2D, texture: CanvasImageSource, spriteX: number, spriteY: number, spriteWidth: number, spriteHeight: number, x: number, y: number, width: number, height: number, alpha = 1.0) {
         Gui.drawSprite(stack, texture, spriteX, spriteY, spriteWidth, spriteHeight, x, y, width, height, alpha);
     }
 
-    drawBackground(stack, texture, width, height, scale = 2) {
+    drawBackground(stack: CanvasRenderingContext2D, texture: CanvasImageSource, width: number, height: number, scale = 2) {
         let pattern = stack.createPattern(texture, "repeat");
         stack.save();
         stack.filter = "brightness(28%)";
@@ -63,7 +67,7 @@ export default class Gui {
         stack.restore();
     }
 
-    renderBlock(stack, texture, block, x, y) {
+    renderBlock(stack: CanvasRenderingContext2D, texture: CanvasImageSource, block: Block, x: number, y: number) {
         let scale = 0.18;
 
         let blockWidth = 32 * scale;
@@ -116,7 +120,7 @@ export default class Gui {
         stack.restore();
     }
 
-    renderBlockFace(stack, texture, block, triangles, face) {
+    renderBlockFace(stack: CanvasRenderingContext2D, texture: CanvasImageSource, block: Block, triangles: Triangle[], face: EnumBlockFace) {
         // UV Mapping
         let textureIndex = block.getTextureForFace(face);
         let minU = (textureIndex % 16) / 16.0;
@@ -127,7 +131,7 @@ export default class Gui {
         stack.restore();
     }
 
-    static drawSprite(stack, texture, spriteX, spriteY, spriteWidth, spriteHeight, x, y, width, height, alpha = 1.0) {
+    static drawSprite(stack: CanvasRenderingContext2D, texture: CanvasImageSource, spriteX: number, spriteY: number, spriteWidth: number, spriteHeight: number, x: number, y: number, width: number, height: number, alpha = 1.0) {
         stack.save();
         stack.globalAlpha = alpha;
         stack.drawImage(

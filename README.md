@@ -1,4 +1,4 @@
-# Minecraft recode in JavaScript
+# Minecraft recode in ~Java~TypeScript
 
 This is a sandbox that provides all basic features of Minecraft.<br>
 The main purpose of this project is to understand the render and physics engine of Minecraft.<br>

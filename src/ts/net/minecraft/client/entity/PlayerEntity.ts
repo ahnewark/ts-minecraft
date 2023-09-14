@@ -1,16 +1,41 @@
-import EntityLiving from "../../../../../ts/net/minecraft/client/entity/EntityLiving.js";
-import Block from "../world/block/Block.js";
-import MathHelper from "../../util/MathHelper.js";
-import Keyboard from "../../util/Keyboard.js";
-import Vector3 from "../../util/Vector3.js";
-import {BlockRegistry} from "../../../../../ts/net/minecraft/client/world/block/BlockRegistry.js";
-import InventoryPlayer from "../inventory/inventory/InventoryPlayer.js";
+import EntityLiving from "./EntityLiving.js";
+import Block from "../../../../../js/net/minecraft/client/world/block/Block.js";
+import MathHelper from "../../../../../js/net/minecraft/util/MathHelper.js";
+import Keyboard from "../../../../../js/net/minecraft/util/Keyboard.js";
+import Vector3 from "../../../../../js/net/minecraft/util/Vector3.js";
+import {BlockRegistry} from "../world/block/BlockRegistry.js";
+import InventoryPlayer from "../../../../../js/net/minecraft/client/inventory/inventory/InventoryPlayer.js";
+import Minecraft from "../../../../../js/net/minecraft/client/Minecraft.js";
+import World from "../../../../../js/net/minecraft/client/world/World.js";
 
 export default class PlayerEntity extends EntityLiving {
 
-    static name = "PlayerEntity";
+    public static entityName = "PlayerEntity";
 
-    constructor(minecraft, world, id) {
+    public inventory: InventoryPlayer;
+    public username: string;
+
+    public collision: boolean;
+
+    public jumpMovementFactor: number;
+    public speedInAir: number;
+    public flySpeed: number;
+
+    public flyToggleTimer: number;
+    public sprintToggleTimer: number;
+
+    public sprinting: boolean;
+
+    public prevFovModifier: number;
+    public fovModifier: number;
+    public timeFovChanged: number;
+
+    public cameraYaw: number;
+    public cameraPitch: number;
+    public prevCameraYaw: number;
+    public prevCameraPitch: number;
+
+    constructor(minecraft: Minecraft, world: World, id: number) {
         super(minecraft, world, id);
 
         this.inventory = new InventoryPlayer();
@@ -54,7 +79,7 @@ export default class PlayerEntity extends EntityLiving {
         this.setPosition(spawn.x, spawn.y, spawn.z);
     }
 
-    turn(motionX, motionY) {
+    turn(motionX: number, motionY: number) {
         let sensitivity = this.minecraft.settings.sensitivity / 500;
         this.rotationYaw = this.rotationYaw + motionX * sensitivity;
         this.rotationPitch = this.rotationPitch - motionY * sensitivity;
@@ -167,7 +192,7 @@ export default class PlayerEntity extends EntityLiving {
         }
     }
 
-    travelFlying(forward, vertical, strafe) {
+    travelFlying(forward: number, vertical: number, strafe: number) {
         // Fly move up and down
         if (this.isSneaking()) {
             this.moveStrafing = strafe / 0.3;
@@ -193,7 +218,7 @@ export default class PlayerEntity extends EntityLiving {
         }
     }
 
-    travelInWater(forward, vertical, strafe) {
+    travelInWater(forward: number, vertical: number, strafe: number) {
         let slipperiness = 0.8;
         let friction = 0.02;
 
@@ -206,7 +231,7 @@ export default class PlayerEntity extends EntityLiving {
         this.motionY -= 0.02;
     }
 
-    travel(forward, vertical, strafe) {
+    travel(forward: number, vertical: number, strafe: number) {
         let isSlow = this.onGround && this.isSneaking();
 
         let prevX = this.x;
@@ -278,7 +303,7 @@ export default class PlayerEntity extends EntityLiving {
         return this.sprinting ? 0.13 : 0.1;
     }
 
-    moveRelative(forward, up, strafe, friction) {
+    moveRelative(forward: number, up: number, strafe: number, friction: number) {
         let distance = strafe * strafe + up * up + forward * forward;
 
         if (distance >= 0.0001) {
@@ -412,7 +437,7 @@ export default class PlayerEntity extends EntityLiving {
     /**
      * interpolated look vector
      */
-    getLook(partialTicks) {
+    getLook(partialTicks: number) {
         // TODO interpolation
         return this.getVectorForRotation(this.rotationPitch, this.rotationYaw);
     }
@@ -420,7 +445,7 @@ export default class PlayerEntity extends EntityLiving {
     /**
      * Creates a Vec3 using the pitch and yaw of the entities rotation.
      */
-    getVectorForRotation(pitch, yaw) {
+    getVectorForRotation(pitch: number, yaw: number) {
         let z = Math.cos(-yaw * 0.017453292 - Math.PI);
         let x = Math.sin(-yaw * 0.017453292 - Math.PI);
         let xz = -Math.cos(-pitch * 0.017453292);
@@ -428,7 +453,7 @@ export default class PlayerEntity extends EntityLiving {
         return new Vector3(x * xz, y, z * xz);
     }
 
-    rayTrace(blockReachDistance, partialTicks) {
+    rayTrace(blockReachDistance: number, partialTicks: number) {
         let from = this.getPositionEyes(partialTicks);
         let direction = this.getLook(partialTicks);
         let to = from.addVector(direction.x * blockReachDistance, direction.y * blockReachDistance, direction.z * blockReachDistance);

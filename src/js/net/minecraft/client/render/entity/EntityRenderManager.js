@@ -1,6 +1,6 @@
 import PlayerRenderer from "./entity/PlayerRenderer.js";
-import PlayerEntity from "../../entity/PlayerEntity.js";
-import PlayerEntityMultiplayer from "../../entity/PlayerEntityMultiplayer.js";
+import PlayerEntity from "../../../../../../ts/net/minecraft/client/entity/PlayerEntity.js";
+import PlayerEntityMultiplayer from "../../../../../../ts/net/minecraft/client/entity/PlayerEntityMultiplayer.js";
 
 export default class EntityRenderManager {
 

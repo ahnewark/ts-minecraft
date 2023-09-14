@@ -1,5 +1,5 @@
 import PlayerController from "./PlayerController.js";
-import PlayerEntityMultiplayer from "../../entity/PlayerEntityMultiplayer.js";
+import PlayerEntityMultiplayer from "../../../../../../ts/net/minecraft/client/entity/PlayerEntityMultiplayer.js";
 import ClientChatPacket from "../packet/play/client/ClientChatPacket.js";
 
 export default class PlayerControllerMultiplayer extends PlayerController {

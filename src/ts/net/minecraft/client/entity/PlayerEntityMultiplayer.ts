@@ -1,12 +1,27 @@
 import PlayerEntity from "./PlayerEntity.js";
-import ClientPlayerMovementPacket from "../network/packet/play/client/ClientPlayerMovementPacket.js";
-import ClientPlayerRotationPacket from "../network/packet/play/client/ClientPlayerRotationPacket.js";
-import ClientPlayerPositionPacket from "../network/packet/play/client/ClientPlayerPositionPacket.js";
-import ClientPlayerPositionRotationPacket from "../network/packet/play/client/ClientPlayerPositionRotationPacket.js";
-import ClientPlayerStatePacket from "../network/packet/play/client/ClientPlayerStatePacket.js";
-import ClientSwingArmPacket from "../network/packet/play/client/ClientSwingArmPacket.js";
+import ClientPlayerMovementPacket from "../../../../../js/net/minecraft/client/network/packet/play/client/ClientPlayerMovementPacket.js";
+import ClientPlayerRotationPacket from "../../../../../js/net/minecraft/client/network/packet/play/client/ClientPlayerRotationPacket.js";
+import ClientPlayerPositionPacket from "../../../../../js/net/minecraft/client/network/packet/play/client/ClientPlayerPositionPacket.js";
+import ClientPlayerPositionRotationPacket from "../../../../../js/net/minecraft/client/network/packet/play/client/ClientPlayerPositionRotationPacket.js";
+import ClientPlayerStatePacket from "../../../../../js/net/minecraft/client/network/packet/play/client/ClientPlayerStatePacket.js";
+import ClientSwingArmPacket from "../../../../../js/net/minecraft/client/network/packet/play/client/ClientSwingArmPacket.js";
+import NetworkPlayHandler from "../../../../../js/net/minecraft/client/network/handler/NetworkPlayHandler.js";
 
 export default class PlayerEntityMultiplayer extends PlayerEntity {
+
+    public networkHandler: NetworkPlayHandler;
+
+    public positionUpdateTicks: number;
+
+    public lastReportedX: number;
+    public lastReportedY: number;
+    public lastReportedZ: number;
+
+    public lastReportedYaw: number;
+    public lastReportedPitch: number;
+
+    public serverSprintState: boolean;
+    public serverSneakState: boolean;
 
     constructor(minecraft, world, networkHandler, id) {
         super(minecraft, world, id);

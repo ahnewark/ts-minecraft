@@ -4,7 +4,7 @@ import WorldClient from "../../world/WorldClient.js";
 import ClientKeepAlivePacket from "../packet/play/client/ClientKeepAlivePacket.js";
 import PlayerControllerMultiplayer from "../controller/PlayerControllerMultiplayer.js";
 import ClientPlayerPositionRotationPacket from "../packet/play/client/ClientPlayerPositionRotationPacket.js";
-import PlayerEntity from "../../entity/PlayerEntity.js";
+import PlayerEntity from "../../../../../../ts/net/minecraft/client/entity/PlayerEntity.js";
 import ServerAnimationPacket from "../packet/play/server/ServerAnimationPacket.js";
 import ClientConfirmTransactionPacket from "../packet/play/client/ClientConfirmTransactionPacket.js";
 

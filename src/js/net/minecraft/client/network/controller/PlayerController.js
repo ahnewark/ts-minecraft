@@ -1,4 +1,4 @@
-import PlayerEntity from "../../entity/PlayerEntity.js";
+import PlayerEntity from "../../../../../../ts/net/minecraft/client/entity/PlayerEntity.js";
 
 export default class PlayerController {
 

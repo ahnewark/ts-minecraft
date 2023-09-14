@@ -1,4 +1,4 @@
-import GuiScreen from "../GuiScreen.js";
+import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
 import GuiTextField from "../widgets/GuiTextField.js";
 
 export default class GuiChat extends GuiScreen {

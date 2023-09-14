@@ -1,4 +1,4 @@
-import GuiScreen from "../GuiScreen.js";
+import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
 import GuiButton from "../widgets/GuiButton.js";
 import NetworkManager from "../../network/NetworkManager.js";
 import HandshakePacket from "../../network/packet/handshake/client/HandshakePacket.js";

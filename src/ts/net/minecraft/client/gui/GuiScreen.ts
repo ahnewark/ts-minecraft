@@ -1,9 +1,19 @@
-import Gui from "../../../../../ts/net/minecraft/client/gui/Gui.js";
+import Minecraft from "../../../../../js/net/minecraft/client/Minecraft.js";
+import GuiButton from "../../../../../js/net/minecraft/client/gui/widgets/GuiButton.js";
+import Gui from "./Gui.js";
 
 export default class GuiScreen extends Gui {
 
-    constructor() {
-        super();
+    public buttonList: GuiButton[] = [];
+    public previousScreen: GuiScreen;
+
+    public width: number;
+    public height: number;
+
+    public textureBackground: HTMLImageElement;
+
+    constructor(minecraft: Minecraft) {
+        super(minecraft);
 
         this.buttonList = [];
         this.previousScreen = null;
@@ -26,7 +36,7 @@ export default class GuiScreen extends Gui {
 
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         for (let i in this.buttonList) {
             let button = this.buttonList[i];
             button.minecraft = this.minecraft;
@@ -42,7 +52,7 @@ export default class GuiScreen extends Gui {
         }
     }
 
-    keyTyped(key, character) {
+    keyTyped(key: string, character: string) {
         if (key === "Escape") {
             this.minecraft.displayScreen(this.previousScreen);
             return true;
@@ -57,7 +67,7 @@ export default class GuiScreen extends Gui {
         return false;
     }
 
-    keyReleased(key) {
+    keyReleased(key: string) {
         for (let i in this.buttonList) {
             let button = this.buttonList[i];
 
@@ -67,7 +77,7 @@ export default class GuiScreen extends Gui {
         return false;
     }
 
-    mouseClicked(mouseX, mouseY, mouseButton) {
+    mouseClicked(mouseX: number, mouseY: number, mouseButton: number) {
         for (let i in this.buttonList) {
             let button = this.buttonList[i];
 
@@ -77,7 +87,7 @@ export default class GuiScreen extends Gui {
         }
     }
 
-    mouseReleased(mouseX, mouseY, mouseButton) {
+    mouseReleased(mouseX: number, mouseY: number, mouseButton: number) {
         for (let i in this.buttonList) {
             let button = this.buttonList[i];
 
@@ -85,7 +95,7 @@ export default class GuiScreen extends Gui {
         }
     }
 
-    mouseDragged(mouseX, mouseY, mouseButton) {
+    mouseDragged(mouseX: number, mouseY: number, mouseButton: number) {
         for (let i in this.buttonList) {
             let button = this.buttonList[i];
 
@@ -93,7 +103,7 @@ export default class GuiScreen extends Gui {
         }
     }
 
-    drawDefaultBackground(stack) {
+    drawDefaultBackground(stack: CanvasRenderingContext2D) {
         if (this.minecraft.isInGame()) {
             // Render transparent background
             this.drawRect(stack, 0, 0, this.width, this.height, 'black', 0.6);

@@ -1,4 +1,4 @@
-import GuiScreen from "../GuiScreen.js";
+import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
 import GuiKeyButton from "../widgets/GuiKeyButton.js";
 import GuiButton from "../widgets/GuiButton.js";
 import GuiSliderButton from "../widgets/GuiSliderButton.js";

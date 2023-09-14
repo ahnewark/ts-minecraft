@@ -1,4 +1,4 @@
-import GuiScreen from "../GuiScreen.js";
+import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
 import Block from "../../world/block/Block.js";
 
 export default class GuiContainer extends GuiScreen {

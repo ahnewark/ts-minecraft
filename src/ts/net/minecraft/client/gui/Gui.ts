@@ -6,7 +6,7 @@ import Block from "../../../../../js/net/minecraft/client/world/block/Block";
 import EnumBlockFace from "../../../../../js/net/minecraft/util/EnumBlockFace";
 
 export default class Gui {
-    protected minecraft: Minecraft;
+    public minecraft: Minecraft;
 
     constructor(minecraft: Minecraft) {
         this.minecraft = minecraft;

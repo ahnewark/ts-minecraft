@@ -1,4 +1,4 @@
-import GuiScreen from "../GuiScreen.js";
+import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
 import GuiButton from "../widgets/GuiButton.js";
 import GuiOptions from "./GuiOptions.js";
 import * as THREE from "three";

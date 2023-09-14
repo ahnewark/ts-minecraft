@@ -2,8 +2,17 @@ import GuiButton from "./GuiButton.js";
 
 export default class GuiTextField extends GuiButton {
 
-    constructor(x, y, width, height) {
-        super("", x, y, width, height);
+    private text: string;
+    private isFocused: boolean;
+    private cursorCounter: number;
+    private maxLength: number;
+    private renderBackground: boolean;
+    
+    private shiftPressed: boolean;
+    private controlPressed: boolean;
+
+    constructor(x: number, y: number, width: number, height: number) {
+        super("", x, y, width, height, () => {});
 
         this.text = "";
         this.isFocused = false;
@@ -12,7 +21,7 @@ export default class GuiTextField extends GuiButton {
         this.renderBackground = true;
     }
 
-    render(stack, mouseX, mouseY, partialTicks) {
+    render(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         let cursorVisible = this.isFocused && Math.floor(this.cursorCounter / 6) % 2 === 0;
         let textColor = this.enabled ? 0xe0e0e0ff : 0x707070ff;
 
@@ -35,7 +44,7 @@ export default class GuiTextField extends GuiButton {
         this.cursorCounter++;
     }
 
-    mouseClicked(mouseX, mouseY, mouseButton) {
+    mouseClicked(mouseX: number, mouseY: number, mouseButton: number) {
         this.isFocused = true;
     }
 
@@ -43,7 +52,7 @@ export default class GuiTextField extends GuiButton {
 
     }
 
-    keyTyped(key, character) {
+    keyTyped(key: string, character: string) {
         if (!this.isFocused || !this.enabled) {
             return;
         }
@@ -86,7 +95,7 @@ export default class GuiTextField extends GuiButton {
         }
     }
 
-    keyReleased(key) {
+    keyReleased(key: string) {
         if (key === "ShiftLeft") {
             this.shiftPressed = false;
             return;

@@ -1,5 +1,5 @@
 import Minecraft from "../../../../../js/net/minecraft/client/Minecraft.js";
-import GuiButton from "../../../../../js/net/minecraft/client/gui/widgets/GuiButton.js";
+import GuiButton from "./widgets/GuiButton.js";
 import Gui from "./Gui.js";
 
 export default class GuiScreen extends Gui {
@@ -12,15 +12,13 @@ export default class GuiScreen extends Gui {
 
     public textureBackground: HTMLImageElement;
 
-    constructor(minecraft: Minecraft) {
-        super(minecraft);
-
+    constructor() {
+        super();
         this.buttonList = [];
         this.previousScreen = null;
     }
 
-    setup(minecraft, width, height) {
-        this.minecraft = minecraft;
+    setup(minecraft: Minecraft, width: number, height: number) {
         this.width = width;
         this.height = height;
         this.textureBackground = this.getTexture("gui/background.png");
@@ -39,7 +37,6 @@ export default class GuiScreen extends Gui {
     drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         for (let i in this.buttonList) {
             let button = this.buttonList[i];
-            button.minecraft = this.minecraft;
             button.render(stack, mouseX, mouseY, partialTicks);
         }
     }

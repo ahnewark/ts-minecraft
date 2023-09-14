@@ -1,7 +1,7 @@
 import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
-import GuiKeyButton from "../widgets/GuiKeyButton.js";
-import GuiButton from "../widgets/GuiButton.js";
-import GuiSliderButton from "../widgets/GuiSliderButton.js";
+import GuiKeyButton from "../../../../../../ts/net/minecraft/client/gui/widgets/GuiKeyButton.js";
+import GuiButton from "../../../../../../ts/net/minecraft/client/gui/widgets/GuiButton.js";
+import GuiSliderButton from "../../../../../../ts/net/minecraft/client/gui/widgets/GuiSliderButton.js";
 
 export default class GuiControls extends GuiScreen {
 

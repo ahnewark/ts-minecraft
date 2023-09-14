@@ -9,24 +9,22 @@ class Start {
 
     private resources: { [texturePath: string]: HTMLImageElement } = {};
 
-    loadTextures(textures: string[]) {
+    async loadTextures(textures: string[]) {
         let index = 0;
 
-        return textures.reduce((currentPromise, texturePath) => {
-            return currentPromise.then(() => {
-                return new Promise<void>((resolve, reject) => {
-                    // Load texture
-                    let image = new Image();
-                    image.src = "src/resources/" + texturePath;
-                    image.onload = () => resolve();
-                    this.resources[texturePath] = image;
+        await Promise.all(textures.map(async (texturePath) => {
+            return new Promise<void>((resolve, reject) => {
+                // Load texture
+                let image = new Image();
+                image.src = "src/resources/" + texturePath;
+                image.onload = () => resolve();
+                this.resources[texturePath] = image;
 
-                    index++;
-                });
+                index++;
             });
-        }, Promise.resolve()).then(() => {
-            return this.resources;
-        });
+        }))
+
+        return this.resources
     }
 
     async launch(canvasWrapperId) {

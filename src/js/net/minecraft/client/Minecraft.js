@@ -26,8 +26,10 @@ import CommandHandler from "../../../../ts/net/minecraft/client/command/CommandH
 
 export default class Minecraft {
 
+    static singleton;
+
     static VERSION = "1.1.8"
-    static URL_GITHUB = "https://github.com/labystudio/js-minecraft";
+    static URL_GITHUB = "https://github.com/ahnewark/ts-minecraft";
     static PROTOCOL_VERSION = 47; //758;
 
     // TODO Add to settings
@@ -40,6 +42,8 @@ export default class Minecraft {
      * Create Minecraft instance and render it on a canvas
      */
     constructor(canvasWrapperId, resources) {
+        Minecraft.singleton = this;
+
         this.resources = resources;
 
         this.currentScreen = null;

@@ -1,9 +1,20 @@
-import Gui from "../../../../../../ts/net/minecraft/client/gui/Gui.js";
+import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
+import Gui from "../Gui.js";
 
 export default class GuiButton extends Gui {
 
-    constructor(string, x, y, width, height, callback) {
-        super();
+    protected string: string;
+    protected enabled: boolean;
+
+    protected x: number;
+    protected y: number;
+    protected width: number;
+    protected height: number;
+
+    protected callback: () => void;
+
+    constructor(string: string, x: number, y: number, width: number, height: number, callback: GuiButton["callback"]) {
+        super(Minecraft.singleton);
 
         this.string = string;
         this.enabled = true;
@@ -16,7 +27,7 @@ export default class GuiButton extends Gui {
         this.callback = callback;
     }
 
-    render(stack, mouseX, mouseY, partialTicks) {
+    render(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         let mouseOver = this.isMouseOver(mouseX, mouseY);
         this.drawButton(stack, this.enabled, mouseOver, this.x, this.y, this.width, this.height);
         this.drawCenteredString(stack, this.string, this.x + this.width / 2, this.y + this.height / 2 - 4);
@@ -32,31 +43,31 @@ export default class GuiButton extends Gui {
 
     }
 
-    mouseClicked(mouseX, mouseY, mouseButton) {
+    mouseClicked(mouseX: number, mouseY: number, mouseButton: number) {
         this.onPress();
     }
 
-    mouseReleased(mouseX, mouseY, mouseButton) {
+    mouseReleased(mouseX: number, mouseY: number, mouseButton: number) {
 
     }
 
-    mouseDragged(mouseX, mouseY, mouseButton) {
+    mouseDragged(mouseX: number, mouseY: number, mouseButton: number) {
 
     }
 
-    keyTyped(key, character) {
+    keyTyped(key: string, character: string) {
 
     }
 
-    keyReleased(key) {
+    keyReleased(key: string) {
 
     }
 
-    isMouseOver(mouseX, mouseY) {
+    isMouseOver(mouseX: number, mouseY: number) {
         return mouseX > this.x && mouseX < this.x + this.width && mouseY > this.y && mouseY < this.y + this.height;
     }
 
-    drawButton(stack, enabled, mouseOver, x, y, width, height) {
+    drawButton(stack: CanvasRenderingContext2D, enabled: boolean, mouseOver: boolean, x: number, y: number, width: number, height: number) {
         let textureGui = this.getTexture("gui/gui.png");
         let spriteY = 66 + (enabled ? (mouseOver ? 20 : 0) : -20);
 
@@ -64,7 +75,7 @@ export default class GuiButton extends Gui {
         this.drawSprite(stack, textureGui, 200 - width / 2, spriteY, width / 2, 20, x + width / 2, y, width / 2, height);
     }
 
-    setEnabled(enabled) {
+    setEnabled(enabled: boolean) {
         this.enabled = enabled;
         return this;
     }

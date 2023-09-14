@@ -6,10 +6,10 @@ import Block from "../../../../../js/net/minecraft/client/world/block/Block";
 import EnumBlockFace from "../../../../../js/net/minecraft/util/EnumBlockFace";
 
 export default class Gui {
-    public minecraft: Minecraft;
+    public readonly minecraft: Minecraft;
 
-    constructor(minecraft: Minecraft) {
-        this.minecraft = minecraft;
+    constructor() {
+        this.minecraft = Minecraft.singleton;
     }
 
     getTexture(id: string) {

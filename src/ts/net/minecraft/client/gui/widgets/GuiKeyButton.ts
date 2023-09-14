@@ -2,8 +2,12 @@ import GuiButton from "./GuiButton.js";
 
 export default class GuiKeyButton extends GuiButton {
 
-    constructor(name, key, x, y, width, height, callback) {
-        super(name + ": " + key, x, y, width, height, _ => callback(this.key));
+    private name: string;
+    private listening: boolean;
+    private key: string;
+
+    constructor(name: string, key: string, x: number, y: number, width: number, height: number, callback: () => void) {
+        super(name + ": " + key, x, y, width, height, callback);
 
         this.name = name;
         this.listening = false;

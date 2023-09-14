@@ -9,9 +9,8 @@ export default class ChatOverlay extends Gui {
     private messages: ChatLine[];
     private sentHistory: string[];
 
-    constructor(minecraft: Minecraft) {
-        super(minecraft);
-
+    constructor() {
+        super();
         this.messages = [];
         this.sentHistory = [];
     }

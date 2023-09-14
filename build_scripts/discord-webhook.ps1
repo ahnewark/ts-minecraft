@@ -98,7 +98,7 @@ $WEBHOOK_DATA="{
 }"
 
 Invoke-RestMethod -Uri "$DISCORD_WEBHOOK_URL" -Method "POST" -UserAgent "AppVeyor-Webhook" `
-  -ContentType "application/json" -Header @{"X-Author"="k3rn31p4nic#8383"} `
+  -ContentType "application/json" -Header @{"X-Author"="ahnewark"} `
   -Body $WEBHOOK_DATA
 
 Write-Output "[Discord Webhook]: Successfully sent the webhook."

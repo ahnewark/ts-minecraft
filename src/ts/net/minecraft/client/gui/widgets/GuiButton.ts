@@ -6,10 +6,10 @@ export default class GuiButton<T = void> extends Gui {
     protected string: string;
     protected enabled: boolean;
 
-    protected x: number;
-    protected y: number;
-    protected width: number;
-    protected height: number;
+    public x: number;
+    public y: number;
+    public width: number;
+    public height: number;
 
     protected callback: (value?: T) => void;
 

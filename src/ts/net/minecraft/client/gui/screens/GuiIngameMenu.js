@@ -1,5 +1,5 @@
-import GuiButton from "../../../../../../ts/net/minecraft/client/gui/widgets/GuiButton.js";
-import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
+import GuiButton from "../widgets/GuiButton.js";
+import GuiScreen from "../GuiScreen.js";
 import GuiOptions from "./GuiOptions.js";
 
 export default class GuiIngameMenu extends GuiScreen {

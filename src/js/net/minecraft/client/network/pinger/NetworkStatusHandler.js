@@ -1,5 +1,5 @@
 import PacketHandler from "../handler/PacketHandler.js";
-import GuiDisconnected from "../../gui/screens/GuiDisconnected.js";
+import GuiDisconnected from "../../../../../../ts/net/minecraft/client/gui/screens/GuiDisconnected.js";
 
 export default class NetworkStatusHandler extends PacketHandler {
 

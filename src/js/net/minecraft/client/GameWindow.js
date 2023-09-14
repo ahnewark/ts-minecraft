@@ -1,8 +1,8 @@
 import Minecraft from "./Minecraft.js";
 import FocusStateType from "../util/FocusStateType.js";
-import GuiIngameMenu from "./gui/screens/GuiIngameMenu.js";
+import GuiIngameMenu from "../../../../ts/net/minecraft/client/gui/screens/GuiIngameMenu.js";
 import Keyboard from "../util/Keyboard.js";
-import GuiLoadingScreen from "./gui/screens/GuiLoadingScreen.js";
+import GuiLoadingScreen from "../../../../ts/net/minecraft/client/gui/screens/GuiLoadingScreen.js";
 
 export default class GameWindow {
 

@@ -1,7 +1,11 @@
-import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
-import GuiTextField from "../../../../../../ts/net/minecraft/client/gui/widgets/GuiTextField.js";
+import GuiScreen from "../GuiScreen.js";
+import GuiTextField from "../widgets/GuiTextField.js";
 
 export default class GuiChat extends GuiScreen {
+
+    private inputField: GuiTextField;
+    private historyIndex: number;
+
 
     constructor() {
         super();
@@ -24,13 +28,13 @@ export default class GuiChat extends GuiScreen {
         this.buttonList.push(this.inputField);
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         this.drawRect(stack, 2, this.height - 14, this.width - 2, this.height - 2, '#000000', 0.5);
 
         super.drawScreen(stack, mouseX, mouseY, partialTicks);
     }
 
-    keyTyped(key, character) {
+    keyTyped(key: string, character: string) {
         if (key === "Enter") {
             let message = this.inputField.getText().trim();
             if (message.length === 0) {

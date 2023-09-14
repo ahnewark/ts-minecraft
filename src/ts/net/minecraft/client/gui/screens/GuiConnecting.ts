@@ -1,15 +1,21 @@
-import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
-import GuiButton from "../../../../../../ts/net/minecraft/client/gui/widgets/GuiButton.js";
-import NetworkManager from "../../network/NetworkManager.js";
-import HandshakePacket from "../../network/packet/handshake/client/HandshakePacket.js";
-import ProtocolState from "../../network/ProtocolState.js";
-import NetworkLoginHandler from "../../network/handler/NetworkLoginHandler.js";
-import Minecraft from "../../Minecraft.js";
-import LoginStartPacket from "../../network/packet/login/client/LoginStartPacket.js";
+import GuiScreen from "../GuiScreen.js";
+import GuiButton from "../widgets/GuiButton.js";
+import NetworkManager from "../../../../../../js/net/minecraft/client/network/NetworkManager.js";
+import HandshakePacket from "../../../../../../js/net/minecraft/client/network/packet/handshake/client/HandshakePacket.js";
+import ProtocolState from "../../../../../../js/net/minecraft/client/network/ProtocolState.js";
+import NetworkLoginHandler from "../../../../../../js/net/minecraft/client/network/handler/NetworkLoginHandler.js";
+import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
+import LoginStartPacket from "../../../../../../js/net/minecraft/client/network/packet/login/client/LoginStartPacket.js";
 
 export default class GuiConnecting extends GuiScreen {
 
-    constructor(previousScreen, address) {
+    public previousScreen: GuiScreen;
+    public connecting: boolean;
+    public networkManager: NetworkManager;
+    public address: string;
+    public port: number;
+
+    constructor(previousScreen: GuiScreen, address: string) {
         super();
 
         this.previousScreen = previousScreen;
@@ -27,7 +33,7 @@ export default class GuiConnecting extends GuiScreen {
         }
     }
 
-    connect(address, port) {
+    connect(address: string, port: number) {
         this.networkManager = new NetworkManager(this.minecraft);
         this.networkManager.setNetworkHandler(new NetworkLoginHandler(this.networkManager));
         this.networkManager.connect(address, port, Minecraft.PROXY);
@@ -52,7 +58,7 @@ export default class GuiConnecting extends GuiScreen {
         }
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         // Render dirt background
         this.drawBackground(stack, this.textureBackground, this.width, this.height);
 

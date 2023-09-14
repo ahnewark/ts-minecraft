@@ -14,7 +14,7 @@ export default class IngameOverlay extends Gui {
 
     private readonly window: GameWindow;
 
-    private readonly chatOverlay: ChatOverlay;
+    public readonly chatOverlay: ChatOverlay;
     private readonly playerListOverlay: PlayerListOverlay;
 
     private readonly textureCrosshair: HTMLImageElement;

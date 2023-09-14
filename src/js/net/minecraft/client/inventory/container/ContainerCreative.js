@@ -1,5 +1,5 @@
 import Container from "../Container.js";
-import GuiContainerCreative from "../../gui/screens/container/GuiContainerCreative.js";
+import GuiContainerCreative from "../../../../../../ts/net/minecraft/client/gui/screens/container/GuiContainerCreative.js";
 import Slot from "../Slot.js";
 import Block from "../../world/block/Block.js";
 import InventoryPlayer from "../inventory/InventoryPlayer.js";

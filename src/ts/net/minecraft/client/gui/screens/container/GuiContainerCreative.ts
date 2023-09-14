@@ -1,12 +1,15 @@
 import GuiContainer from "../GuiContainer.js";
-import ContainerCreative from "../../../inventory/container/ContainerCreative.js";
-import InventoryBasic from "../../../inventory/inventory/InventoryBasic.js";
+import ContainerCreative from "../../../../../../../js/net/minecraft/client/inventory/container/ContainerCreative.js";
+import InventoryBasic from "../../../../../../../js/net/minecraft/client/inventory/inventory/InventoryBasic.js";
+import PlayerEntity from "../../../entity/PlayerEntity.js";
 
 export default class GuiContainerCreative extends GuiContainer {
 
     static inventory = new InventoryBasic();
 
-    constructor(player) {
+    private textureInventory: HTMLImageElement;
+
+    constructor(player: PlayerEntity) {
         super(new ContainerCreative(player));
 
         this.inventoryWidth = 195;
@@ -19,11 +22,11 @@ export default class GuiContainerCreative extends GuiContainer {
         super.init();
     }
 
-    drawTitle(stack) {
+    drawTitle(stack: CanvasRenderingContext2D) {
         this.drawString(stack, "Creative Inventory", this.x + 8, this.y + 6, 0xff404040, false);
     }
 
-    drawInventoryBackground(stack) {
+    drawInventoryBackground(stack: CanvasRenderingContext2D) {
         this.drawSprite(
             stack,
             this.textureInventory,
@@ -38,7 +41,7 @@ export default class GuiContainerCreative extends GuiContainer {
         );
     }
 
-    keyTyped(key, character) {
+    keyTyped(key: string, character: string) {
         if (key === this.minecraft.settings.keyOpenInventory) {
             this.minecraft.displayScreen(null);
             return true;

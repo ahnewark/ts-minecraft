@@ -1,9 +1,21 @@
-import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
-import Block from "../../world/block/Block.js";
+import GuiScreen from "../GuiScreen.js";
+import Block from "../../../../../../js/net/minecraft/client/world/block/Block.js";
+import Container from "../../../../../../js/net/minecraft/client/inventory/Container.js";
+import Slot from "../../../../../../js/net/minecraft/client/inventory/Slot.js";
 
 export default class GuiContainer extends GuiScreen {
 
-    constructor(container) {
+    public inventoryWidth: number;
+    public inventoryHeight: number;
+
+    public container: Container;
+
+    public hoverSlot: Slot;
+
+    public x: number;
+    public y: number;
+
+    constructor(container: Container) {
         super();
 
         this.inventoryWidth = 176;
@@ -21,7 +33,7 @@ export default class GuiContainer extends GuiScreen {
         this.y = Math.floor((this.height - this.inventoryHeight) / 2);
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         this.drawDefaultBackground(stack);
         this.drawInventoryBackground(stack);
         this.drawString(stack, "Creative Inventory", this.x + 8, this.y + 6, 0x404040);
@@ -63,7 +75,7 @@ export default class GuiContainer extends GuiScreen {
         super.drawScreen(stack, mouseX, mouseY, partialTicks);
     }
 
-    mouseClicked(mouseX, mouseY, mouseButton) {
+    mouseClicked(mouseX: number, mouseY: number, mouseButton: number) {
         super.mouseClicked(mouseX, mouseY, mouseButton);
 
         for (const slot of this.container.slots) {
@@ -73,7 +85,7 @@ export default class GuiContainer extends GuiScreen {
         }
     }
 
-    keyTyped(key, character) {
+    keyTyped(key: string, character: string) {
         // Swap to slot
         for (let i = 1; i <= 9; i++) {
             if (key === 'Digit' + i && this.hoverSlot !== null) {
@@ -84,7 +96,7 @@ export default class GuiContainer extends GuiScreen {
         return super.keyTyped(key, character);
     }
 
-    drawSlot(stack, slot, mouseX, mouseY) {
+    drawSlot(stack: CanvasRenderingContext2D, slot: Slot, mouseX: number, mouseY: number) {
         let x = this.x + slot.x;
         let y = this.y + slot.y;
 
@@ -120,15 +132,15 @@ export default class GuiContainer extends GuiScreen {
         this.minecraft.itemRenderer.destroy("inventory");
     }
 
-    drawTitle(stack) {
+    drawTitle(stack: CanvasRenderingContext2D) {
 
     }
 
-    drawInventoryBackground(stack) {
+    drawInventoryBackground(stack: CanvasRenderingContext2D) {
 
     }
 
-    isMouseOverSlot(slot, mouseX, mouseY) {
+    isMouseOverSlot(slot: Slot, mouseX: number, mouseY: number) {
         let x = this.x + slot.x;
         let y = this.y + slot.y;
         return mouseX >= x && mouseX <= x + 16 && mouseY >= y && mouseY <= y + 16;

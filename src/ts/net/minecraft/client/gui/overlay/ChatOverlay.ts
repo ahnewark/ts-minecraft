@@ -1,5 +1,5 @@
 import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
-import GuiChat from "../../../../../../js/net/minecraft/client/gui/screens/GuiChat";
+import GuiChat from "../screens/GuiChat.js";
 import ChatLine from "../../../../../../js/net/minecraft/util/ChatLine";
 import MathHelper from "../../../../../../js/net/minecraft/util/MathHelper";
 import Gui from "../Gui";
@@ -7,7 +7,7 @@ import Gui from "../Gui";
 export default class ChatOverlay extends Gui {
 
     private messages: ChatLine[];
-    private sentHistory: string[];
+    public sentHistory: string[];
 
     constructor() {
         super();

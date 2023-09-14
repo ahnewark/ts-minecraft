@@ -1,5 +1,5 @@
 import PacketHandler from "./PacketHandler.js";
-import GuiDisconnected from "../../gui/screens/GuiDisconnected.js";
+import GuiDisconnected from "../../../../../../ts/net/minecraft/client/gui/screens/GuiDisconnected.js";
 import WorldClient from "../../world/WorldClient.js";
 import ClientKeepAlivePacket from "../packet/play/client/ClientKeepAlivePacket.js";
 import PlayerControllerMultiplayer from "../controller/PlayerControllerMultiplayer.js";

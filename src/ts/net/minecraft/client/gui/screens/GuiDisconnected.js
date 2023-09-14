@@ -1,6 +1,6 @@
-import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
-import GuiButton from "../../../../../../ts/net/minecraft/client/gui/widgets/GuiButton.js";
-import FontRenderer from "../../render/gui/FontRenderer.js";
+import GuiScreen from "../GuiScreen.js";
+import GuiButton from "../widgets/GuiButton.js";
+import FontRenderer from "../../../../../../js/net/minecraft/client/render/gui/FontRenderer.js";
 
 export default class GuiDisconnected extends GuiScreen {
 

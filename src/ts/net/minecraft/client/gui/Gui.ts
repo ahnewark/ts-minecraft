@@ -12,7 +12,7 @@ export default class Gui {
         this.minecraft = Minecraft.singleton;
     }
 
-    getTexture(id: string) {
+    getTexture(id: string): HTMLImageElement {
         return this.minecraft.resources[id];
     }
 

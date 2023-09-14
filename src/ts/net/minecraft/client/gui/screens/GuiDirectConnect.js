@@ -1,6 +1,6 @@
-import GuiScreen from "../../../../../../ts/net/minecraft/client/gui/GuiScreen.js";
-import GuiButton from "../../../../../../ts/net/minecraft/client/gui/widgets/GuiButton.js";
-import GuiTextField from "../../../../../../ts/net/minecraft/client/gui/widgets/GuiTextField.js";
+import GuiScreen from "../GuiScreen.js";
+import GuiButton from "../widgets/GuiButton.js";
+import GuiTextField from "../widgets/GuiTextField.js";
 import GuiConnecting from "./GuiConnecting.js";
 
 export default class GuiDirectConnect extends GuiScreen {

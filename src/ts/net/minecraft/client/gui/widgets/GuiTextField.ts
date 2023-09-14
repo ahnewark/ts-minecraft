@@ -2,11 +2,11 @@ import GuiButton from "./GuiButton.js";
 
 export default class GuiTextField extends GuiButton {
 
-    private text: string;
-    private isFocused: boolean;
+    public text: string;
+    public isFocused: boolean;
     private cursorCounter: number;
     private maxLength: number;
-    private renderBackground: boolean;
+    public renderBackground: boolean;
     
     private shiftPressed: boolean;
     private controlPressed: boolean;

@@ -4,7 +4,7 @@ import GameWindow from "./GameWindow.js";
 import WorldRenderer from "./render/WorldRenderer.js";
 import ScreenRenderer from "./render/gui/ScreenRenderer.js";
 import ItemRenderer from "./render/gui/ItemRenderer.js";
-import IngameOverlay from "./gui/overlay/IngameOverlay.js";
+import IngameOverlay from "../../../../ts/net/minecraft/client/gui/overlay/IngameOverlay.js";
 import SoundManager from "./sound/SoundManager.js";
 import Block from "./world/block/Block.js";
 import BoundingBox from "../util/BoundingBox.js";
@@ -78,7 +78,7 @@ export default class Minecraft {
         this.itemRenderer = new ItemRenderer(this, this.window);
 
         // Create current screen and overlay
-        this.ingameOverlay = new IngameOverlay(this, this.window);
+        this.ingameOverlay = new IngameOverlay(this.window);
 
         // Command handler
         this.commandHandler = new CommandHandler(this);

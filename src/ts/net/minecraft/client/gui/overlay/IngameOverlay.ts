@@ -1,31 +1,41 @@
-import Gui from "../../../../../../ts/net/minecraft/client/gui/Gui.js";
-import Block from "../../world/block/Block.js";
-import ChatOverlay from "../../../../../../ts/net/minecraft/client/gui/overlay/ChatOverlay.js";
-import Minecraft from "../../Minecraft.js";
-import EnumBlockFace from "../../../util/EnumBlockFace.js";
-import MathHelper from "../../../util/MathHelper.js";
-import FontRenderer from "../../render/gui/FontRenderer.js";
-import EnumSkyBlock from "../../../util/EnumSkyBlock.js";
+import Gui from "../Gui.js";
+import Block from "../../../../../../js/net/minecraft/client/world/block/Block.js";
+import ChatOverlay from "./ChatOverlay.js";
+import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
+import EnumBlockFace from "../../../../../../js/net/minecraft/util/EnumBlockFace.js";
+import MathHelper from "../../../../../../js/net/minecraft/util/MathHelper.js";
+import FontRenderer from "../../../../../../js/net/minecraft/client/render/gui/FontRenderer.js";
+import EnumSkyBlock from "../../../../../../js/net/minecraft/util/EnumSkyBlock.js";
 import PlayerListOverlay from "./PlayerListOverlay.js";
-import Keyboard from "../../../util/Keyboard.js";
+import Keyboard from "../../../../../../js/net/minecraft/util/Keyboard.js";
+import GameWindow from "../../../../../../js/net/minecraft/client/GameWindow.js";
 
 export default class IngameOverlay extends Gui {
 
-    constructor(minecraft, window) {
+    private readonly window: GameWindow;
+
+    private readonly chatOverlay: ChatOverlay;
+    private readonly playerListOverlay: PlayerListOverlay;
+
+    private readonly textureCrosshair: HTMLImageElement;
+    private readonly textureHotbar: HTMLImageElement;
+
+    private ticksRendered: number;
+
+    constructor(window: GameWindow) {
         super();
-        this.minecraft = minecraft;
         this.window = window;
 
-        this.chatOverlay = new ChatOverlay(minecraft);
-        this.playerListOverlay = new PlayerListOverlay(minecraft, this);
+        this.chatOverlay = new ChatOverlay();
+        this.playerListOverlay = new PlayerListOverlay(this);
 
-        this.textureCrosshair = minecraft.resources["gui/icons.png"];
-        this.textureHotbar = minecraft.resources["gui/gui.png"];
+        this.textureCrosshair = this.minecraft.resources["gui/icons.png"];
+        this.textureHotbar = this.minecraft.resources["gui/gui.png"];
 
         this.ticksRendered = 0;
     }
 
-    render(stack, mouseX, mouseY, partialTicks) {
+    render(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         // Render crosshair
         if (this.minecraft.hasInGameFocus()) {
             this.renderCrosshair(stack, this.window.width / 2, this.window.height / 2)
@@ -46,6 +56,8 @@ export default class IngameOverlay extends Gui {
         if (Keyboard.isKeyDown(this.minecraft.settings.keyPlayerList) && !this.minecraft.isSingleplayer()) {
             this.playerListOverlay.renderPlayerList(stack, this.window.width);
         }
+
+        this.drawCenteredString(stack, 'ts-minecraft ' + Minecraft.VERSION, this.window.width / 2, this.window.height - 30, 0xffe0e0e0);
     }
 
     onTick() {
@@ -72,12 +84,12 @@ export default class IngameOverlay extends Gui {
         }
     }
 
-    renderCrosshair(stack, x, y) {
+    renderCrosshair(stack: CanvasRenderingContext2D, x: number, y: number) {
         let size = 15;
         this.drawSprite(stack, this.textureCrosshair, 0, 0, 15, 15, x - size / 2, y - size / 2, size, size, 0.6);
     }
 
-    renderHotbar(stack, x, y) {
+    renderHotbar(stack: CanvasRenderingContext2D, x: number, y: number) {
         // Render background
         this.drawSprite(stack, this.textureHotbar, 0, 0, 200, 22, x, y, 200, 22)
         this.drawSprite(
@@ -104,7 +116,7 @@ export default class IngameOverlay extends Gui {
         }
     }
 
-    renderLeftDebugOverlay(stack, filters = []) {
+    renderLeftDebugOverlay(stack: CanvasRenderingContext2D, filters: number[] = []) {
         let world = this.minecraft.world;
         let player = this.minecraft.player;
         let worldRenderer = this.minecraft.worldRenderer;
@@ -168,7 +180,7 @@ export default class IngameOverlay extends Gui {
         let soundsLoaded = 0;
         let soundsPlaying = 0;
         let soundPool = this.minecraft.soundManager.soundPool;
-        for (let [id, sounds] of Object.entries(soundPool)) {
+        for (let [id, sounds] of Object.entries<THREE.PositionalAudio[]>(soundPool)) {
             for (let sound of sounds) {
                 soundsLoaded++;
 
@@ -181,7 +193,7 @@ export default class IngameOverlay extends Gui {
         let towards = "Towards " + (facing.isPositive() ? "positive" : "negative") + " " + (facing.isXAxis() ? "X" : "Z");
 
         let lines = [
-            "js-minecraft " + Minecraft.VERSION,
+            "ts-minecraft " + Minecraft.VERSION,
             fps + " fps (" + chunkUpdates + " chunk updates) T: " + this.minecraft.maxFps,
             "C: " + visibleChunks + "/" + loadedChunks + " D: " + viewDistance + ", L: " + lightUpdates,
             "E: " + visibleEntities + "/" + entities + ", P: " + particles,
@@ -235,7 +247,7 @@ export default class IngameOverlay extends Gui {
 
     }
 
-    renderRightDebugOverlay(stack) {
+    renderRightDebugOverlay(stack: CanvasRenderingContext2D) {
         let memoryLimit = this.minecraft.window.getMemoryLimit();
         let memoryUsed = this.minecraft.window.getMemoryUsed();
         let memoryAllocated = this.minecraft.window.getMemoryAllocated();
@@ -274,7 +286,7 @@ export default class IngameOverlay extends Gui {
         }
     }
 
-    humanFileSize(bytesUsed, bytesMax) {
+    humanFileSize(bytesUsed: number, bytesMax: number) {
         if (Math.abs(bytesMax) < 1000) {
             return (bytesUsed === null ? "" : bytesUsed + "/") + bytesMax + "B";
         }

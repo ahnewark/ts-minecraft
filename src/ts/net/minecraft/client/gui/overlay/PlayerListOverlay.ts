@@ -1,13 +1,21 @@
-import Gui from "../../../../../../ts/net/minecraft/client/gui/Gui.js";
-import FontRenderer from "../../render/gui/FontRenderer.js";
+import FontRenderer from "../../../../../../js/net/minecraft/client/render/gui/FontRenderer.js";
+import Gui from "../Gui.js";
+import IngameOverlay from "./IngameOverlay.js";
 
 export default class PlayerListOverlay extends Gui {
 
-    constructor(minecraft, ingameOverlay) {
+    private readonly window;
+    private readonly ingameOverlay;
+
+    private dirty: boolean;
+
+    private header: string;
+    private footer: string;
+
+    constructor(ingameOverlay: IngameOverlay) {
         super();
 
-        this.minecraft = minecraft;
-        this.window = minecraft.window;
+        this.window = this.minecraft.window;
         this.ingameOverlay = ingameOverlay;
         this.dirty = true;
 
@@ -15,7 +23,7 @@ export default class PlayerListOverlay extends Gui {
         this.footer = null;
     }
 
-    renderPlayerList(stack, width) {
+    renderPlayerList(stack: CanvasRenderingContext2D, width: number) {
         if (this.dirty) {
             let subStack = this.window.canvasPlayerList.getContext("2d");
             this.reinitialize(subStack, width);
@@ -24,7 +32,7 @@ export default class PlayerListOverlay extends Gui {
         stack.drawImage(this.window.canvasPlayerList, 0, 0);
     }
 
-    reinitialize(stack, width) {
+    reinitialize(stack: CanvasRenderingContext2D, width: number) {
         this.dirty = false;
 
         let playerInfoMap = this.minecraft.playerController.getNetworkHandler().getPlayerInfoMap();
@@ -176,7 +184,6 @@ export default class PlayerListOverlay extends Gui {
                     entryY + 1,
                     10,
                     8,
-                    'rgb(0,0,0)'
                 );
             }
 
@@ -212,11 +219,11 @@ export default class PlayerListOverlay extends Gui {
         this.dirty = true;
     }
 
-    setHeader(header) {
+    setHeader(header: string) {
         this.header = header;
     }
 
-    setFooter(footer) {
+    setFooter(footer: string) {
         this.footer = footer;
     }
 }

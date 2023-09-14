@@ -1,7 +1,7 @@
 import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
 import Gui from "../Gui.js";
 
-export default class GuiButton extends Gui {
+export default class GuiButton<T = void> extends Gui {
 
     protected string: string;
     protected enabled: boolean;
@@ -11,11 +11,10 @@ export default class GuiButton extends Gui {
     protected width: number;
     protected height: number;
 
-    protected callback: () => void;
+    protected callback: (value?: T) => void;
 
-    constructor(string: string, x: number, y: number, width: number, height: number, callback: GuiButton["callback"]) {
-        super(Minecraft.singleton);
-
+    constructor(string: string, x: number, y: number, width: number, height: number, callback: GuiButton<T>["callback"]) {
+        super();
         this.string = string;
         this.enabled = true;
 

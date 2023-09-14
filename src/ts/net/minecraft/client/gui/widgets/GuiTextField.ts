@@ -77,8 +77,7 @@ export default class GuiTextField extends GuiButton {
         if (key === "KeyV" && this.controlPressed) {
             this.minecraft.window.getClipboardText().then(text => {
                 this.text += text;
-            });
-            return;
+            }, () => { console.debug("Failed to get clipboard text") });
         }
 
         if (key === "KeyA" && this.controlPressed) {

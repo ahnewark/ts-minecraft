@@ -1,4 +1,4 @@
-import Entity from "./Entity.js";
+import Entity from "../../../../../ts/net/minecraft/client/entity/Entity.js";
 import MathHelper from "../../util/MathHelper.js";
 
 export default class EntityLiving extends Entity {

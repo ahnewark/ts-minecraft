@@ -1,4 +1,4 @@
-import {BlockRegistry} from "../../block/BlockRegistry.js";
+import {BlockRegistry} from "../../../../../../../ts/net/minecraft/client/world/block/BlockRegistry.js";
 import Generator from "../Generator.js";
 
 export default class TreeGenerator extends Generator {

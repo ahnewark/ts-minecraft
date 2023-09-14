@@ -2,7 +2,7 @@ import NoiseGeneratorOctaves from "./noise/NoiseGeneratorOctaves.js";
 import Chunk from "../Chunk.js";
 import Primer from "./Primer.js";
 import CaveGenerator from "./structure/CaveGenerator.js";
-import {BlockRegistry} from "../block/BlockRegistry.js";
+import {BlockRegistry} from "../../../../../../ts/net/minecraft/client/world/block/BlockRegistry.js";
 import TreeGenerator from "./structure/TreeGenerator.js";
 import BigTreeGenerator from "./structure/BigTreeGenerator.js";
 import Generator from "./Generator.js";

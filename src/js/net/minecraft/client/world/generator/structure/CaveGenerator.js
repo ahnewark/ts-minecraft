@@ -1,5 +1,5 @@
 import Random from "../../../../util/Random.js";
-import {BlockRegistry} from "../../block/BlockRegistry.js";
+import {BlockRegistry} from "../../../../../../../ts/net/minecraft/client/world/block/BlockRegistry.js";
 import Generator from "../Generator.js";
 
 export default class CaveGenerator extends Generator {

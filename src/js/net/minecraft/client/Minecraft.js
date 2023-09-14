@@ -8,7 +8,7 @@ import IngameOverlay from "./gui/overlay/IngameOverlay.js";
 import SoundManager from "./sound/SoundManager.js";
 import Block from "./world/block/Block.js";
 import BoundingBox from "../util/BoundingBox.js";
-import {BlockRegistry} from "./world/block/BlockRegistry.js";
+import {BlockRegistry} from "../../../../ts/net/minecraft/client/world/block/BlockRegistry.js";
 import FontRenderer from "./render/gui/FontRenderer.js";
 import GrassColorizer from "./render/GrassColorizer.js";
 import GuiMainMenu from "./gui/screens/GuiMainMenu.js";

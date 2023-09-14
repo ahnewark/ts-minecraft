@@ -1,4 +1,4 @@
-import Entity from "../../entity/Entity.js";
+import Entity from "../../../../../../ts/net/minecraft/client/entity/Entity.js";
 import * as THREE from "three";
 import Tessellator from "../Tessellator.js";
 

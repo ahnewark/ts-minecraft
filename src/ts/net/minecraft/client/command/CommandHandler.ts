@@ -6,7 +6,7 @@ import Minecraft from "../../../../../js/net/minecraft/client/Minecraft.js";
 
 export default class CommandHandler {
 
-    private commands: Command[] = [];
+    public commands: Command[] = [];
     private minecraft: Minecraft;
 
     constructor(minecraft: Minecraft) {

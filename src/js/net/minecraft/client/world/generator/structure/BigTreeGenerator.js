@@ -1,5 +1,5 @@
 import Generator from "../Generator.js";
-import {BlockRegistry} from "../../block/BlockRegistry.js";
+import {BlockRegistry} from "../../../../../../../ts/net/minecraft/client/world/block/BlockRegistry.js";
 
 export default class BigTreeGenerator extends Generator {
 

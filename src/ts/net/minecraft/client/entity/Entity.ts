@@ -162,12 +162,12 @@ export default class Entity {
         }
     }
 
-    async travelInWater(forward, vertical, strafe) {
+    travelInWater(forward, vertical, strafe) {
         let slipperiness = 0.8;
         let friction = 0.02;
 
         this.moveRelative(forward, vertical, strafe, friction);
-        this.collision = await this.moveCollide(-this.motionX, this.motionY, -this.motionZ);
+        this.collision = this.moveCollide(-this.motionX, this.motionY, -this.motionZ);
 
         this.motionX *= slipperiness;
         this.motionY *= 0.8;
@@ -251,14 +251,14 @@ export default class Entity {
         return this.boundingBox.height() * 0.8;
     }
 
-    async moveCollide(targetX: number, targetY: number, targetZ: number) {
+    moveCollide(targetX: number, targetY: number, targetZ: number) {
         // Target position
         let originalTargetX = targetX;
         let originalTargetY = targetY;
         let originalTargetZ = targetZ;
 
         if (this.onGround && this.isSneaking()) {
-            for (; targetX !== 0.0 && (await this.world.getCollisionBoxes(this.boundingBox.offset(targetX, -this.stepHeight, 0.0))).length === 0; originalTargetX = targetX) {
+            for (; targetX !== 0.0 && (this.world.getCollisionBoxes(this.boundingBox.offset(targetX, -this.stepHeight, 0.0))).length === 0; originalTargetX = targetX) {
                 if (targetX < 0.05 && targetX >= -0.05) {
                     targetX = 0.0;
                 } else if (targetX > 0.0) {
@@ -268,7 +268,7 @@ export default class Entity {
                 }
             }
 
-            for (; targetZ !== 0.0 && (await this.world.getCollisionBoxes(this.boundingBox.offset(0.0, -this.stepHeight, targetZ))).length === 0; originalTargetZ = targetZ) {
+            for (; targetZ !== 0.0 && (this.world.getCollisionBoxes(this.boundingBox.offset(0.0, -this.stepHeight, targetZ))).length === 0; originalTargetZ = targetZ) {
                 if (targetZ < 0.05 && targetZ >= -0.05) {
                     targetZ = 0.0;
                 } else if (targetZ > 0.0) {
@@ -278,7 +278,7 @@ export default class Entity {
                 }
             }
 
-            for (; targetX !== 0.0 && targetZ !== 0.0 && (await this.world.getCollisionBoxes(this.boundingBox.offset(targetX, -this.stepHeight, targetZ))).length === 0; originalTargetZ = targetZ) {
+            for (; targetX !== 0.0 && targetZ !== 0.0 && (this.world.getCollisionBoxes(this.boundingBox.offset(targetX, -this.stepHeight, targetZ))).length === 0; originalTargetZ = targetZ) {
                 if (targetX < 0.05 && targetX >= -0.05) {
                     targetX = 0.0;
                 } else if (targetX > 0.0) {

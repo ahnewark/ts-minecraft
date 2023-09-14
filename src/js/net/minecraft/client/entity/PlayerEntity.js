@@ -1,4 +1,4 @@
-import EntityLiving from "./EntityLiving.js";
+import EntityLiving from "../../../../../ts/net/minecraft/client/entity/EntityLiving.js";
 import Block from "../world/block/Block.js";
 import MathHelper from "../../util/MathHelper.js";
 import Keyboard from "../../util/Keyboard.js";

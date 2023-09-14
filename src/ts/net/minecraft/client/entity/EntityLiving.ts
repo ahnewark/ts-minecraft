@@ -1,9 +1,50 @@
-import Entity from "../../../../../ts/net/minecraft/client/entity/Entity.js";
-import MathHelper from "../../util/MathHelper.js";
+import Entity from "./Entity.js";
+import MathHelper from "../../../../../js/net/minecraft/util/MathHelper.js";
+import Minecraft from "../../../../../js/net/minecraft/client/Minecraft.js";
+import World from "../../../../../js/net/minecraft/client/world/World.js";
 
 export default class EntityLiving extends Entity {
 
-    constructor(minecraft, world, id) {
+    public jumpTicks: number;
+
+    public jumping: boolean;
+
+    public moveForward: number;
+    public moveStrafing: number;
+
+    public swingProgress: number;
+    public prevSwingProgress: number;
+    public swingProgressInt: number;
+    public isSwingInProgress: boolean;
+
+    public renderYawOffset: number;
+    public rotationYawHead: number;
+
+    public prevRotationYawHead: number;
+    public prevRenderYawOffset: number;
+
+    public limbSwingProgress: number;
+    public limbSwingStrength: number;
+    public prevLimbSwingStrength: number;
+
+    public health: number;
+
+    public rotationPositionIncrements: number;
+
+    public targetX: number;
+    public targetY: number;
+    public targetZ: number;
+    public targetYaw: number;
+    public targetPitch: number;
+
+    public flying: boolean;
+
+    public renderArmPitch: number;
+    public renderArmYaw: number;
+    public prevRenderArmPitch: number;
+    public prevRenderArmYaw: number;
+
+    constructor(minecraft: Minecraft, world: World, id: number) {
         super(minecraft, world, id);
 
         this.jumpTicks = 0;
@@ -121,7 +162,7 @@ export default class EntityLiving extends Entity {
         this.moveEntityWithHeading(this.moveForward, this.moveStrafing);
     }
 
-    moveEntityWithHeading(moveForward, moveStrafing) {
+    moveEntityWithHeading(moveForward: number, moveStrafing: number) {
         if (this.flying) {
             this.travelFlying(moveForward, 0, moveStrafing);
         } else {
@@ -194,7 +235,7 @@ export default class EntityLiving extends Entity {
         }
     }
 
-    setTargetPositionAndRotation(x, y, z, yaw, pitch, increments) {
+    setTargetPositionAndRotation(x: number, y: number, z: number, yaw: number, pitch: number, increments: number) {
         this.targetX = x;
         this.targetY = y;
         this.targetZ = z;
@@ -227,7 +268,7 @@ export default class EntityLiving extends Entity {
         this.swingProgress = this.swingProgressInt / swingAnimationEnd;
     }
 
-    getSwingProgress(partialTicks) {
+    getSwingProgress(partialTicks: number) {
         let swingProgressDiff = this.swingProgress - this.prevSwingProgress;
         if (swingProgressDiff < 0.0) {
             swingProgressDiff++;
@@ -235,7 +276,7 @@ export default class EntityLiving extends Entity {
         return this.prevSwingProgress + swingProgressDiff * partialTicks;
     }
 
-    computeAngleWithBound(value, subtract, limit) {
+    computeAngleWithBound(value: number, subtract: number, limit: number) {
         let wrapped = MathHelper.wrapAngleTo180(value - subtract);
         if (wrapped < -limit) {
             wrapped = -limit;
@@ -246,7 +287,7 @@ export default class EntityLiving extends Entity {
         return value - wrapped;
     }
 
-    setRotationYawHead(yaw) {
+    setRotationYawHead(yaw: number) {
         this.targetYaw = yaw; // TODO should be rotationYawHead
         // this.rotationYawHead = yaw;
     }

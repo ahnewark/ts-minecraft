@@ -6,7 +6,7 @@ install:
   - npm install
 
 cache:
- - C:\projects\js-minecraft\node_modules
+ - C:\projects\ts-minecraft\node_modules
 
 # Post-install test scripts.
 test_script:
@@ -19,9 +19,9 @@ build_script:
 
 artifacts:
   - path: dist/index.js
-    name: minecraft-client
+    name: ts-minecraft
 
 on_success:
-  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq "main") {C:\projects\alphabot\build_scripts\discord-webhook.ps1 success $env:DISCORD_WEBHOOK_URL}
+  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq "main") {C:\projects\ts-minecraft\build_scripts\discord-webhook.ps1 success $env:DISCORD_WEBHOOK_URL}
 on_failure:
-  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq "main") {C:\projects\alphabot\build_scripts\discord-webhook.ps1 failure $env:DISCORD_WEBHOOK_URL}
+  - ps: if ($env:APPVEYOR_REPO_BRANCH -eq "main") {C:\projects\ts-minecraft\build_scripts\discord-webhook.ps1 failure $env:DISCORD_WEBHOOK_URL}

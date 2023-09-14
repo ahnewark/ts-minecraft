@@ -13,7 +13,7 @@ const production = !process.env.ROLLUP_WATCH;
 /** @type { import('rollup').RollupOptions } */
 export default {
   input: [
-   './src/ts/Start.ts',
+   './src/ts/index.ts',
   ],
   output: {
     dir: 'dist',

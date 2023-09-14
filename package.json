@@ -10,7 +10,7 @@
   "scripts": {
     "clean": "rm -fr dist",
     "build": "npm run clean && npm run rollup",
-    "start": "live-server --watch=\"dist/Start.js\",\"src/resources/*\"",
+    "start": "live-server --watch=\"dist/index.js\",\"src/resources/*\"",
     "rollup": "rollup -c rollup.config.mjs",
     "rollup-watch": "npm run rollup -- --watch"
   },

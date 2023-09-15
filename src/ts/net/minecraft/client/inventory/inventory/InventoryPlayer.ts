@@ -3,7 +3,7 @@ import Inventory from "../Inventory.js";
 export default class InventoryPlayer extends Inventory {
 
     private selectedSlotIndex: number;
-    private itemInCursor: number;
+    public itemInCursor: number;
     private items: number[];
 
     constructor() {

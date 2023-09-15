@@ -25,7 +25,7 @@ export default class GuiIngameMenu extends GuiScreen {
         }));
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         // Background
         this.drawRect(stack, 0, 0, this.width, this.height, 'black', 0.6);
 

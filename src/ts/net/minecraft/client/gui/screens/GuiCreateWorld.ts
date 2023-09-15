@@ -9,7 +9,9 @@ import PlayerController from "../../../../../../js/net/minecraft/client/network/
 
 export default class GuiCreateWorld extends GuiScreen {
 
-    constructor(previousScreen) {
+    private fieldSeed: GuiTextField;
+
+    constructor(previousScreen: GuiScreen) {
         super();
 
         this.previousScreen = previousScreen;
@@ -25,13 +27,14 @@ export default class GuiCreateWorld extends GuiScreen {
         this.buttonList.push(this.fieldSeed);
 
         this.buttonList.push(new GuiButton("Create New World", this.width / 2 - 155, y + 110, 150, 20, () => {
-            let seed = this.fieldSeed.getText();
-            if (seed.length === 0) {
+            const seedText = this.fieldSeed.getText();
+            let seed: Long;
+            if (seedText.length === 0) {
                 seed = new Random().nextLong();
-            } else if (isNaN(seed)) {
+            } else if (isNaN(parseInt(seedText))) {
                 let h = 0;
-                for (let i = 0; i < seed.length; i++) {
-                    h = 31 * h + seed.charCodeAt(i);
+                for (let i = 0; i < seedText.length; i++) {
+                    h = 31 * h + seedText.charCodeAt(i);
                 }
                 seed = Long.fromNumber(h);
             }
@@ -49,7 +52,7 @@ export default class GuiCreateWorld extends GuiScreen {
         }));
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         // Background
         this.drawDefaultBackground(stack);
 

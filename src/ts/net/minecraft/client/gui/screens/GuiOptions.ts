@@ -6,7 +6,7 @@ import GuiControls from "./GuiControls.js";
 
 export default class GuiOptions extends GuiScreen {
 
-    constructor(previousScreen) {
+    constructor(previousScreen: GuiScreen) {
         super();
 
         this.previousScreen = previousScreen;
@@ -40,7 +40,7 @@ export default class GuiOptions extends GuiScreen {
         }));
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         // Background
         this.drawDefaultBackground(stack);
 

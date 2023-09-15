@@ -1,11 +1,11 @@
 import GuiScreen from "../GuiScreen.js";
 import GuiKeyButton from "../widgets/GuiKeyButton.js";
 import GuiButton from "../widgets/GuiButton.js";
-import GuiSliderButton from "../widgets/GuiSliderButton.js";
+import GuiSliderButton from "../widgets/GuiSliderButton";
 
 export default class GuiControls extends GuiScreen {
 
-    constructor(previousScreen) {
+    constructor(previousScreen: GuiScreen) {
         super();
 
         this.previousScreen = previousScreen;
@@ -17,7 +17,7 @@ export default class GuiControls extends GuiScreen {
         let settings = this.minecraft.settings;
 
         let y = this.height / 2 - 50;
-        this.buttonList.push(new GuiSliderButton("Mouse Sensitivity", settings.sensitivity, 50, 150, this.width / 2 - 100, y, 200, 20, value => {
+        this.buttonList.push(new GuiSliderButton("Mouse Sensitivity", settings.sensitivity, 50, 150, this.width / 2 - 100, y, 200, 20, (value) => {
             settings.sensitivity = value;
         }).setDisplayNameBuilder(function (name, value) {
             return name + ": " + value + "%";

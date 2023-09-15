@@ -10,11 +10,19 @@ import GuiDirectConnect from "./GuiDirectConnect.js";
 
 export default class GuiMainMenu extends GuiScreen {
 
+    private panoramaTimer: number;
+    private splashText: string;
+
+    private textureLogo: HTMLImageElement;
+
+    private scene: THREE.Scene;
+    private camera: THREE.PerspectiveCamera;
+
     constructor() {
         super();
 
         this.panoramaTimer = 0;
-        this.splashText = "Minecraft written in JavaScript!";
+        this.splashText = "Minecraft written in TypeScript!";
     }
 
     init() {
@@ -42,7 +50,7 @@ export default class GuiMainMenu extends GuiScreen {
         this.initPanoramaRenderer();
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         let logoWidth = 274;
         let x = this.width / 2 - logoWidth / 2;
         let y = 30;
@@ -66,11 +74,11 @@ export default class GuiMainMenu extends GuiScreen {
         this.drawLogo(stack, x, y);
 
         // Draw version
-        this.drawString(stack, "js-minecraft " + Minecraft.VERSION, 2, this.height - 10, 0xFFFFFFff);
+        this.drawString(stack, "ts-minecraft " + Minecraft.VERSION, 2, this.height - 10, 0xFFFFFFff);
 
         // Draw copyright
         let mouseOver = mouseX > this.width / 2 + 70 && mouseY > this.height - 20;
-        this.drawRightString(stack, "GitHub @LabyStudio/js-minecraft", this.width - 2, this.height - 10, mouseOver ? 0xFF00FFFF : 0xFFFFFFff);
+        this.drawRightString(stack, "GitHub @chnewark/ts-minecraft", this.width - 2, this.height - 10, mouseOver ? 0xFF00FFFF : 0xFFFFFFff);
 
         // Draw buttons
         super.drawScreen(stack, mouseX, mouseY, partialTicks);
@@ -83,29 +91,29 @@ export default class GuiMainMenu extends GuiScreen {
         this.panoramaTimer++;
     }
 
-    drawLogo(stack, x, y) {
+    drawLogo(stack: CanvasRenderingContext2D, x, y) {
         this.drawSprite(stack, this.textureLogo, 0, 0, 155, 44, x, y, 155, 44);
         this.drawSprite(stack, this.textureLogo, 0, 45, 155, 44, x + 155, y, 155, 44);
     }
 
-    drawSplash(stack) {
+    drawSplash(stack: CanvasRenderingContext2D) {
         let f = 1.8 - Math.abs(Math.sin((new Date().getTime() % 1000) / 1000.0 * Math.PI * 2.0) * 0.1);
         f = f * 100.0 / (this.getStringWidth(stack, this.splashText) + 32);
 
         stack.save();
-        stack.translate((this.width / 2 + 90), 70.0, 0.0);
+        stack.translate((this.width / 2 + 90), 70.0);
         stack.rotate(MathHelper.toRadians(-20));
-        stack.scale(f, f, f);
+        stack.scale(f, f);
 
         this.drawCenteredString(stack, this.splashText, 0, -8, -256);
         stack.restore();
     }
 
-    keyTyped(key) {
-        // Cancel key inputs
+    keyTyped(key: string, character: string) {
+        return false;
     }
 
-    mouseClicked(mouseX, mouseY, mouseButton) {
+    mouseClicked(mouseX: number, mouseY: number, mouseButton: number) {
         super.mouseClicked(mouseX, mouseY, mouseButton);
 
         // Click on GitHub text
@@ -119,7 +127,7 @@ export default class GuiMainMenu extends GuiScreen {
         this.scene = new THREE.Scene();
 
         // Create cube
-        let geometry = new THREE.BoxBufferGeometry(1, 1, 1);
+        let geometry = new THREE.BoxGeometry(1, 1, 1);
         let materials = [
             new THREE.MeshBasicMaterial({
                 side: BackSide,
@@ -162,7 +170,7 @@ export default class GuiMainMenu extends GuiScreen {
         // Apply blur
         let style = this.minecraft.window.canvas.style;
         style.backdropFilter = "blur(10px)";
-        style.webkitBackdropFilter = "blur(10px)";
+        // style.webkitBackdropFilter = "blur(10px)";
         this.minecraft.window.wrapper.insertBefore(this.minecraft.window.canvasWorld, this.minecraft.window.canvas);
     }
 
@@ -170,7 +178,7 @@ export default class GuiMainMenu extends GuiScreen {
         // Remove blur
         let style = this.minecraft.window.canvas.style;
         style.backdropFilter = "";
-        style.webkitBackdropFilter = "";
+        // style.webkitBackdropFilter = "";
         this.minecraft.window.wrapper.removeChild(this.minecraft.window.canvasWorld);
     }
 }

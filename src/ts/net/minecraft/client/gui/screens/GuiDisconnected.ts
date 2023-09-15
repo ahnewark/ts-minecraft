@@ -4,7 +4,10 @@ import FontRenderer from "../../../../../../js/net/minecraft/client/render/gui/F
 
 export default class GuiDisconnected extends GuiScreen {
 
-    constructor(message) {
+    public message: string;
+    public multilineMessage: string[];
+
+    constructor(message: string) {
         super();
 
         this.message = message;
@@ -21,7 +24,7 @@ export default class GuiDisconnected extends GuiScreen {
         }));
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         // Render dirt background
         this.drawBackground(stack, this.textureBackground, this.width, this.height);
 

@@ -1,7 +1,7 @@
 import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
 import Gui from "../Gui.js";
 
-export default class GuiButton<T = void> extends Gui {
+export default class GuiButton<T = never> extends Gui {
 
     protected string: string;
     protected enabled: boolean;

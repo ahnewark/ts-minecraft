@@ -5,7 +5,9 @@ import GuiConnecting from "./GuiConnecting.js";
 
 export default class GuiDirectConnect extends GuiScreen {
 
-    constructor(previousScreen) {
+    private fieldAddress: GuiTextField;
+
+    constructor(previousScreen: GuiScreen) {
         super();
 
         this.previousScreen = previousScreen;
@@ -29,7 +31,7 @@ export default class GuiDirectConnect extends GuiScreen {
         }));
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         // Background
         this.drawDefaultBackground(stack);
 

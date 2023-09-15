@@ -2,6 +2,10 @@ import GuiScreen from "../GuiScreen.js";
 
 export default class GuiLoadingScreen extends GuiScreen {
 
+    private title: string = "Loading...";
+    private progress: number = 0;
+
+
     constructor() {
         super();
     }
@@ -10,7 +14,7 @@ export default class GuiLoadingScreen extends GuiScreen {
         super.init();
     }
 
-    drawScreen(stack, mouseX, mouseY, partialTicks) {
+    drawScreen(stack: CanvasRenderingContext2D, mouseX: number, mouseY: number, partialTicks: number) {
         // Render dirt background
         this.drawBackground(stack, this.textureBackground, this.width, this.height);
 
@@ -43,18 +47,18 @@ export default class GuiLoadingScreen extends GuiScreen {
         super.drawScreen(stack, mouseX, mouseY, partialTicks);
     }
 
-    setTitle(title) {
+    setTitle(title: string) {
         this.title = title;
     }
 
-    setProgress(progress) {
+    setProgress(progress: number) {
         if (progress < this.progress || progress > 1) {
             return;
         }
         this.progress = progress;
     }
 
-    keyTyped(key) {
-        // Cancel key inputs
+    keyTyped(key: string, character: string) {
+        return false;
     }
 }

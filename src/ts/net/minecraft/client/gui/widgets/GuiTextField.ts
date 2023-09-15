@@ -5,7 +5,7 @@ export default class GuiTextField extends GuiButton {
     public text: string;
     public isFocused: boolean;
     private cursorCounter: number;
-    private maxLength: number;
+    public maxLength: number;
     public renderBackground: boolean;
     
     private shiftPressed: boolean;

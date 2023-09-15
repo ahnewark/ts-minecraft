@@ -1,8 +1,6 @@
 import GuiButton from "./GuiButton.js";
 import MathHelper from "../../../../../../js/net/minecraft/util/MathHelper.js";
 
-export type GuiSliderButtonCallback = (value: number) => void;
-
 export default class GuiSliderButton extends GuiButton<number> {
 
     private settingName: string;
@@ -15,7 +13,7 @@ export default class GuiSliderButton extends GuiButton<number> {
 
     private getDisplayName: (settingName: string, value: number) => string;
 
-    constructor(name: string, value: number, min: number, max: number, x: number, y: number, width: number, height: number, callback: GuiSliderButtonCallback) {
+    constructor(name: string, value: number, min: number, max: number, x: number, y: number, width: number, height: number, callback: GuiSliderButton['callback']) {
         super(name, x, y, width, height, callback);
 
         this.settingName = name;

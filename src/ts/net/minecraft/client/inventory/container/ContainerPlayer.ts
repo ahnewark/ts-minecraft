@@ -4,8 +4,5 @@ export default class ContainerPlayer extends Container {
 
     constructor() {
         super();
-
     }
-
-
 }

@@ -1,7 +1,7 @@
 import GuiContainer from "../GuiContainer.js";
-import ContainerCreative from "../../../../../../../js/net/minecraft/client/inventory/container/ContainerCreative.js";
-import InventoryBasic from "../../../../../../../js/net/minecraft/client/inventory/inventory/InventoryBasic.js";
+import ContainerCreative from "../../../inventory/container/ContainerCreative.js";
 import PlayerEntity from "../../../entity/PlayerEntity.js";
+import InventoryBasic from "../../../inventory/inventory/InventoryBasic.js";
 
 export default class GuiContainerCreative extends GuiContainer {
 

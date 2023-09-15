@@ -4,9 +4,9 @@ import MathHelper from "../../../../../js/net/minecraft/util/MathHelper.js";
 import Keyboard from "../../../../../js/net/minecraft/util/Keyboard.js";
 import Vector3 from "../../../../../js/net/minecraft/util/Vector3.js";
 import {BlockRegistry} from "../world/block/BlockRegistry.js";
-import InventoryPlayer from "../../../../../js/net/minecraft/client/inventory/inventory/InventoryPlayer.js";
 import Minecraft from "../../../../../js/net/minecraft/client/Minecraft.js";
 import World from "../../../../../js/net/minecraft/client/world/World.js";
+import InventoryPlayer from "../inventory/inventory/InventoryPlayer.js";
 
 export default class PlayerEntity extends EntityLiving {
 

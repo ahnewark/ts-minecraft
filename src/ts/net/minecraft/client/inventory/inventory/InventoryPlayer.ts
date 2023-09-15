@@ -2,6 +2,10 @@ import Inventory from "../Inventory.js";
 
 export default class InventoryPlayer extends Inventory {
 
+    private selectedSlotIndex: number;
+    private itemInCursor: number;
+    private items: number[];
+
     constructor() {
         super("player");
 
@@ -10,11 +14,11 @@ export default class InventoryPlayer extends Inventory {
         this.items = [];
     }
 
-    setItem(index, typeId) {
+    setItem(index: number, typeId: number) {
         this.items[index] = typeId === null ? 0 : typeId;
     }
 
-    setItemInSelectedSlot(typeId) {
+    setItemInSelectedSlot(typeId: number) {
         this.items[this.selectedSlotIndex] = typeId;
     }
 
@@ -22,7 +26,7 @@ export default class InventoryPlayer extends Inventory {
         return this.getItemInSlot(this.selectedSlotIndex);
     }
 
-    shiftSelectedSlot(offset) {
+    shiftSelectedSlot(offset: number) {
         if (this.selectedSlotIndex + offset < 0) {
             this.selectedSlotIndex = 9 + (this.selectedSlotIndex + offset);
         } else {
@@ -30,7 +34,7 @@ export default class InventoryPlayer extends Inventory {
         }
     }
 
-    getItemInSlot(slot) {
-        return this.items.hasOwnProperty(slot) ? this.items[slot] : 0;
+    getItemInSlot(index: number) {
+        return this.items.hasOwnProperty(index) ? this.items[index] : 0;
     }
 }

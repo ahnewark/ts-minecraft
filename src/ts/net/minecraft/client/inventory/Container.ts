@@ -1,15 +1,23 @@
+import PlayerEntity from "../entity/PlayerEntity";
+import Inventory from "./Inventory";
+import Slot from "./Slot";
+import InventoryPlayer from "./inventory/InventoryPlayer";
+
 export default class Container {
+
+    public slots: Slot[];
+    public dirty: boolean;
 
     constructor() {
         this.slots = [];
         this.dirty = true;
     }
 
-    addSlot(slot) {
+    addSlot(slot: Slot) {
         this.slots.push(slot);
     }
 
-    swapWithHotbar(slot, inventoryPlayer, hotbarIndex) {
+    swapWithHotbar(slot: Slot, inventoryPlayer: InventoryPlayer, hotbarIndex: number) {
         let slotInventory = slot.inventory;
 
         let typeId = slotInventory.getItemInSlot(slot.index);
@@ -21,7 +29,7 @@ export default class Container {
         this.dirty = true;
     }
 
-    onSlotClick(slot, player) {
+    onSlotClick(slot: Slot, player: PlayerEntity) {
         let inventoryPlayer = player.inventory;
         let typeId = slot.inventory.getItemInSlot(slot.index);
 

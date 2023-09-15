@@ -1,7 +1,7 @@
 import GuiScreen from "../GuiScreen.js";
 import Block from "../../../../../../js/net/minecraft/client/world/block/Block.js";
-import Container from "../../../../../../js/net/minecraft/client/inventory/Container.js";
-import Slot from "../../../../../../js/net/minecraft/client/inventory/Slot.js";
+import Container from "../../inventory/Container.js";
+import Slot from "../../inventory/Slot.js";
 
 export default class GuiContainer extends GuiScreen {
 
@@ -109,7 +109,7 @@ export default class GuiContainer extends GuiScreen {
             let block = Block.getById(typeId);
             this.minecraft.itemRenderer.renderItemInGui(
                 "inventory",
-                inventory.name + ":" + slot.index,
+                inventory.inventoryName + ":" + slot.index,
                 block,
                 x + 8,
                 y + 8,

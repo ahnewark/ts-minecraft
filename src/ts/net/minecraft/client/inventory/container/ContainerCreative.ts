@@ -1,12 +1,15 @@
 import Container from "../Container.js";
-import GuiContainerCreative from "../../../../../../ts/net/minecraft/client/gui/screens/container/GuiContainerCreative.js";
+import GuiContainerCreative from "../../gui/screens/container/GuiContainerCreative.js";
 import Slot from "../Slot.js";
-import Block from "../../world/block/Block.js";
+import Block from "../../../../../../js/net/minecraft/client/world/block/Block.js";
 import InventoryPlayer from "../inventory/InventoryPlayer.js";
+import PlayerEntity from "../../entity/PlayerEntity.js";
 
 export default class ContainerCreative extends Container {
 
-    constructor(player) {
+    private itemList: number[];
+
+    constructor(player: PlayerEntity) {
         super();
 
         this.itemList = [];
@@ -29,7 +32,7 @@ export default class ContainerCreative extends Container {
         this.scrollTo(0);
     }
 
-    swapWithHotbar(slot, inventoryPlayer, hotbarIndex) {
+    swapWithHotbar(slot: Slot, inventoryPlayer: InventoryPlayer, hotbarIndex: number) {
         let slotInventory = slot.inventory;
         let typeId = slotInventory.getItemInSlot(slot.index);
 
@@ -38,7 +41,7 @@ export default class ContainerCreative extends Container {
         this.dirty = true;
     }
 
-    onSlotClick(slot, player) {
+    onSlotClick(slot: Slot, player: PlayerEntity) {
         if (slot.inventory instanceof InventoryPlayer) {
             super.onSlotClick(slot, player);
         } else {
@@ -48,7 +51,7 @@ export default class ContainerCreative extends Container {
         this.dirty = true;
     }
 
-    scrollTo(scrollOffset) {
+    scrollTo(scrollOffset: number) {
         let xOffset = (this.itemList.length + 9 - 1) / 9 - 5;
         let yOffset = Math.floor((scrollOffset * xOffset) + 0.5);
 

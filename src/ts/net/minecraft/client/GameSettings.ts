@@ -1,4 +1,24 @@
+import Session from "./util/Session";
+
 export default class GameSettings {
+
+    keyCrouching: string;
+    keySprinting: string;
+    keyTogglePerspective: string;
+    keyOpenChat: string;
+    keyOpenInventory: string;
+    keyPlayerList: string;
+
+    session: Session | null;
+
+    thirdPersonView: number;
+    fov: number;
+    viewBobbing: boolean;
+    ambientOcclusion: boolean;
+    sensitivity: number;
+    viewDistance: number;
+    debugOverlay: boolean;
+    serverAddress: string;
 
     constructor() {
         this.keyCrouching = 'ShiftLeft';
@@ -28,7 +48,7 @@ export default class GameSettings {
                 let c = ca[i];
                 while (c.charAt(0) === ' ') c = c.substring(1, c.length);
                 if (c.indexOf(nameEQ) === 0) {
-                    let value = c.substring(nameEQ.length, c.length);
+                    let value: string | number | boolean = c.substring(nameEQ.length, c.length);
                     if (value.match(/^[0-9]+$/)) {
                         value = parseInt(value);
                     }
@@ -41,7 +61,8 @@ export default class GameSettings {
                     if (value === 'null') {
                         value = null;
                     }
-                    this[prop] = value;
+                    // TODO: Refactor
+                    this[prop] = value as any;
                 }
             }
         }

@@ -7,7 +7,7 @@ import ItemRenderer from "./render/gui/ItemRenderer.js";
 import IngameOverlay from "../../../../ts/net/minecraft/client/gui/overlay/IngameOverlay.js";
 import SoundManager from "./sound/SoundManager.js";
 import Block from "./world/block/Block.js";
-import BoundingBox from "../util/BoundingBox.js";
+import BoundingBox from "../../../../ts/net/minecraft/client/util/BoundingBox.js";
 import {BlockRegistry} from "../../../../ts/net/minecraft/client/world/block/BlockRegistry.js";
 import FontRenderer from "./render/gui/FontRenderer.js";
 import GrassColorizer from "./render/GrassColorizer.js";
@@ -19,7 +19,7 @@ import GuiChat from "../../../../ts/net/minecraft/client/gui/screens/GuiChat.js"
 import GuiContainerCreative from "../../../../ts/net/minecraft/client/gui/screens/container/GuiContainerCreative.js";
 import GameProfile from "../../../../ts/net/minecraft/client/util/GameProfile.js";
 import UUID from "../../../../ts/net/minecraft/client/util/UUID.js";
-import FocusStateType from "../util/FocusStateType.js";
+import FocusStateType from "../../../../ts/net/minecraft/client/util/FocusStateType.js";
 import Session from "../../../../ts/net/minecraft/client/util/Session.js";
 import PlayerControllerMultiplayer from "./network/controller/PlayerControllerMultiplayer.js";
 import CommandHandler from "../../../../ts/net/minecraft/client/command/CommandHandler.js";

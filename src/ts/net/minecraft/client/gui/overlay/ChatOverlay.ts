@@ -1,6 +1,6 @@
 import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
 import GuiChat from "../screens/GuiChat.js";
-import ChatLine from "../../../../../../js/net/minecraft/util/ChatLine";
+import ChatLine from "../../util/ChatLine.js";
 import MathHelper from "../../util/MathHelper.js";
 import Gui from "../Gui";
 

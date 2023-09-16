@@ -1,4 +1,4 @@
-import EnumSkyBlock from "../../util/EnumSkyBlock.js";
+import EnumSkyBlock from "../../../../../ts/net/minecraft/client/util/EnumSkyBlock.js";
 import Block from "./block/Block.js";
 import * as THREE from "three";
 

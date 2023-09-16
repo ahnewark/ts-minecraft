@@ -6,7 +6,10 @@ export default class FocusStateType {
     static REQUEST_LOCK = new FocusStateType(2, 3);
     static LOCKED = new FocusStateType(3, -1);
 
-    constructor(id, intentId) {
+    private id: number;
+    private intentId: number;
+
+    constructor(id: number, intentId: number) {
         this.id = id;
         this.intentId = intentId;
     }
@@ -57,7 +60,7 @@ export default class FocusStateType {
         }
     }
 
-    static getById(id) {
+    static getById(id: number) {
         switch (id) {
             case 0:
                 return FocusStateType.REQUEST_EXIT;

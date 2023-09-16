@@ -3,7 +3,7 @@ import IsometricRenderer from "../../../../../js/net/minecraft/client/render/iso
 import Point from "../../../../../js/net/minecraft/client/render/isometric/Point";
 import Triangle from "../../../../../js/net/minecraft/client/render/isometric/Triangle";
 import Block from "../../../../../js/net/minecraft/client/world/block/Block";
-import EnumBlockFace from "../../../../../js/net/minecraft/util/EnumBlockFace";
+import EnumBlockFace from "../util/EnumBlockFace";
 
 export default class Gui {
     public readonly minecraft: Minecraft;

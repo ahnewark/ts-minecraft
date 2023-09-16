@@ -1,4 +1,4 @@
-import EnumBlockFace from "../../../../../js/net/minecraft/util/EnumBlockFace";
+import EnumBlockFace from "./EnumBlockFace";
 import Vector3 from "./Vector3";
 
 export default class MovingObjectPosition {

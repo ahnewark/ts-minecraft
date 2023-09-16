@@ -1,9 +1,9 @@
 import ChunkSection from "./ChunkSection.js";
 import MathHelper from "../../../../../ts/net/minecraft/client/util/MathHelper.js";
-import BoundingBox from "../../util/BoundingBox.js";
-import EnumSkyBlock from "../../util/EnumSkyBlock.js";
+import BoundingBox from "../../../../../ts/net/minecraft/client/util/BoundingBox.js";
+import EnumSkyBlock from "../../../../../ts/net/minecraft/client/util/EnumSkyBlock.js";
 import Block from "./block/Block.js";
-import EnumBlockFace from "../../util/EnumBlockFace.js";
+import EnumBlockFace from "../../../../../ts/net/minecraft/client/util/EnumBlockFace.js";
 import Vector3 from "../../../../../ts/net/minecraft/client/util/Vector3.js";
 import MetadataChunkBlock from "../../../../../ts/net/minecraft/client/util/MetadataChunkBlock.js";
 import * as THREE from "three";

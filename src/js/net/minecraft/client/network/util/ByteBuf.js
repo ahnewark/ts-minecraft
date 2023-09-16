@@ -1,5 +1,5 @@
 import Long from "long";
-import BlockPosition from "../../../util/BlockPosition.js";
+import BlockPosition from "../../../../../../ts/net/minecraft/client/util/BlockPosition.js";
 import UUID from "../../../../../../ts/net/minecraft/client/util/UUID.js";
 import Vector3 from "../../../../../../ts/net/minecraft/client/util/Vector3.js";
 import NBTIO from "../../../nbt/NBTIO.js";

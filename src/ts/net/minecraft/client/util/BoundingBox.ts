@@ -1,5 +1,13 @@
 export default class BoundingBox {
 
+    private epsilon: number;
+    private minX: number;
+    private minY: number;
+    private minZ: number;
+    private maxX: number;
+    private maxY: number;
+    private maxZ: number;
+
     /**
      * Bounding box
      *
@@ -50,7 +58,7 @@ export default class BoundingBox {
      * @param z Amount to expand the minZ or maxZ
      * @return The expanded bounding box
      */
-    expand(x, y, z) {
+    expand(x: number, y: number, z: number) {
         let minX = this.minX;
         let minY = this.minY;
         let minZ = this.minZ;
@@ -93,7 +101,7 @@ export default class BoundingBox {
      * @param z
      * @return
      */
-    grow(x, y, z) {
+    grow(x: number, y: number, z: number) {
         return new BoundingBox(
             this.minX - x,
             this.minY - y,
@@ -112,7 +120,7 @@ export default class BoundingBox {
      * @param x                Position on the X axis that is colliding
      * @return Returns the corrected x position that collided.
      */
-    clipXCollide(otherBoundingBox, x) {
+    clipXCollide(otherBoundingBox: BoundingBox, x: number) {
         // Check if the boxes are colliding on the Y axis
         if (otherBoundingBox.maxY <= this.minY || otherBoundingBox.minY >= this.maxY) {
             return x;
@@ -149,7 +157,7 @@ export default class BoundingBox {
      * @param y                Position on the X axis that is colliding
      * @return Returns the corrected x position that collided.
      */
-    clipYCollide(otherBoundingBox, y) {
+    clipYCollide(otherBoundingBox: BoundingBox, y: number) {
         // Check if the boxes are colliding on the X axis
         if (otherBoundingBox.maxX <= this.minX || otherBoundingBox.minX >= this.maxX) {
             return y;
@@ -187,7 +195,7 @@ export default class BoundingBox {
      * @param z                Position on the X axis that is colliding
      * @return Returns the corrected x position that collided.
      */
-    clipZCollide(otherBoundingBox, z) {
+    clipZCollide(otherBoundingBox: BoundingBox, z: number) {
         // Check if the boxes are colliding on the X axis
         if (otherBoundingBox.maxX <= this.minX || otherBoundingBox.minX >= this.maxX) {
             return z;
@@ -223,7 +231,7 @@ export default class BoundingBox {
      * @param otherBoundingBox The other bounding box that could intersect
      * @return The two boxes are overlapping
      */
-    intersects(otherBoundingBox) {
+    intersects(otherBoundingBox: BoundingBox) {
         // Check on X axis
         if (otherBoundingBox.maxX <= this.minX || otherBoundingBox.minX >= this.maxX) {
             return false;
@@ -245,7 +253,7 @@ export default class BoundingBox {
      * @param y Relative offset y
      * @param z Relative offset z
      */
-    move(x, y, z) {
+    move(x: number, y: number, z: number) {
         this.minX += x;
         this.minY += y;
         this.minZ += z;
@@ -262,7 +270,7 @@ export default class BoundingBox {
      * @param z Relative offset x
      * @return New bounding box with the given offset relative to this bounding box
      */
-    offset(x, y, z) {
+    offset(x: number, y: number, z: number) {
         return new BoundingBox(
             this.minX + x,
             this.minY + y,

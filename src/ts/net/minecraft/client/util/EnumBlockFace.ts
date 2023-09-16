@@ -7,7 +7,11 @@ export default class EnumBlockFace {
     static SOUTH = new EnumBlockFace(0, 0, 1);
     static WEST = new EnumBlockFace(-1, 0, 0);
 
-    constructor(x, y, z) {
+    private x: number;
+    private y: number;
+    private z: number;
+
+    constructor(x: number, y: number, z: number) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -58,7 +62,7 @@ export default class EnumBlockFace {
         return null;
     }
 
-    equals(other) {
+    equals(other: EnumBlockFace) {
         return this.x === other.x && this.y === other.y && this.z === other.z;
     }
 

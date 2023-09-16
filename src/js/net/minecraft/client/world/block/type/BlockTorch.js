@@ -1,7 +1,7 @@
-import BoundingBox from "../../../../util/BoundingBox.js";
+import BoundingBox from "../../../../../../../ts/net/minecraft/client/util/BoundingBox.js";
 import Block from "../Block.js";
-import EnumBlockFace from "../../../../util/EnumBlockFace.js";
-import BlockRenderType from "../../../../util/BlockRenderType.js";
+import EnumBlockFace from "../../../../../../../ts/net/minecraft/client/util/EnumBlockFace.js";
+import BlockRenderType from "../../../../../../../ts/net/minecraft/client/util/BlockRenderType.js";
 
 export default class BlockTorch extends Block {
 

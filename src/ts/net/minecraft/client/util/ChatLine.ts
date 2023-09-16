@@ -1,6 +1,9 @@
 export default class ChatLine {
 
-    constructor(message) {
+    public message: string;
+    public updateCounter: number;
+
+    constructor(message: string) {
         this.message = message;
         this.updateCounter = 0;
     }

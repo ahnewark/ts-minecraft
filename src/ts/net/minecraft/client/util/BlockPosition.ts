@@ -1,4 +1,4 @@
-import Vector3 from "../../../../ts/net/minecraft/client/util/Vector3.js";
+import Vector3 from "./Vector3.js";
 import Long from "long";
 
 export default class BlockPosition extends Vector3 {
@@ -14,7 +14,7 @@ export default class BlockPosition extends Vector3 {
     static Y_MASK = Long.fromNumber(1).shiftLeft(BlockPosition.NUM_Y_BITS).subtract(1);
     static Z_MASK = Long.fromNumber(1).shiftLeft(BlockPosition.NUM_Z_BITS).subtract(1);
 
-    constructor(x, y, z) {
+    constructor(x: number, y: number, z: number) {
         super(Math.floor(x), Math.floor(y), Math.floor(z));
     }
 
@@ -42,7 +42,7 @@ export default class BlockPosition extends Vector3 {
         return this.getZ() >> 4;
     }
 
-    static fromLong(serialized) {
+    static fromLong(serialized: Long) {
         let x = serialized.shiftLeft(64 - BlockPosition.X_SHIFT - BlockPosition.NUM_X_BITS).shiftRight(64 - BlockPosition.NUM_X_BITS).toNumber();
         let y = serialized.shiftLeft(64 - BlockPosition.Y_SHIFT - BlockPosition.NUM_Y_BITS).shiftRight(64 - BlockPosition.NUM_Y_BITS).toNumber();
         let z = serialized.shiftLeft(64 - BlockPosition.NUM_Z_BITS).shiftRight(64 - BlockPosition.NUM_Z_BITS).toNumber();

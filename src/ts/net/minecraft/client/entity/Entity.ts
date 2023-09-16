@@ -2,7 +2,7 @@ import Minecraft from "../../../../../js/net/minecraft/client/Minecraft";
 import EntityRenderer from "../../../../../js/net/minecraft/client/render/entity/EntityRenderer";
 import World from "../../../../../js/net/minecraft/client/world/World";
 import { BlockRegistry } from "../world/block/BlockRegistry";
-import BoundingBox from "../../../../../js/net/minecraft/util/BoundingBox";
+import BoundingBox from "../util/BoundingBox";
 import MathHelper from "../util/MathHelper";
 import Random from "../util/Random";
 

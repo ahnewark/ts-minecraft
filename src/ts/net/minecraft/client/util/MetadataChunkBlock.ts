@@ -1,5 +1,5 @@
 import Block from "../../../../../js/net/minecraft/client/world/block/Block.js";
-import EnumSkyBlock from "../../../../../js/net/minecraft/util/EnumSkyBlock.js";
+import EnumSkyBlock from "./EnumSkyBlock.js";
 import World from "../../../../../js/net/minecraft/client/world/World.js";
 
 export default class MetadataChunkBlock {

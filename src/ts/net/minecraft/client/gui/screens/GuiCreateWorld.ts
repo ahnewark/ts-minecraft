@@ -2,7 +2,7 @@ import GuiScreen from "../GuiScreen.js";
 import GuiButton from "../widgets/GuiButton.js";
 import World from "../../../../../../js/net/minecraft/client/world/World.js";
 import GuiTextField from "../widgets/GuiTextField.js";
-import Random from "../../../../../../js/net/minecraft/util/Random.js";
+import Random from "../../util/Random.js";
 import Long from "long";
 import ChunkProviderGenerate from "../../../../../../js/net/minecraft/client/world/provider/ChunkProviderGenerate.js";
 import PlayerController from "../../../../../../js/net/minecraft/client/network/controller/PlayerController.js";

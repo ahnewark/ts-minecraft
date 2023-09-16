@@ -1,4 +1,4 @@
-import MathHelper from "../../../util/MathHelper.js";
+import MathHelper from "../../../../../../ts/net/minecraft/client/util/MathHelper.js";
 import Block from "../../world/block/Block.js";
 import ParticleDigging from "./particle/ParticleDigging.js";
 

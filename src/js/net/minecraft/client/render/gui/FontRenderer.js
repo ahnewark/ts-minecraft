@@ -1,5 +1,5 @@
 import Gui from "../../../../../../ts/net/minecraft/client/gui/Gui.js";
-import MathHelper from "../../../util/MathHelper.js";
+import MathHelper from "../../../../../../ts/net/minecraft/client/util/MathHelper.js";
 
 export default class FontRenderer {
 

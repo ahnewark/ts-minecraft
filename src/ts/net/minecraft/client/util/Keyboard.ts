@@ -15,7 +15,7 @@ export default class Keyboard {
         Keyboard.setEnabled(true);
     };
 
-    static setState(key, state) {
+    static setState(key: string, state: boolean) {
         Keyboard.state[key] = state;
     }
 
@@ -23,11 +23,11 @@ export default class Keyboard {
         Keyboard.state = {};
     }
 
-    static isKeyDown(key) {
+    static isKeyDown(key: string) {
         return Keyboard.state[key] && Keyboard.enabled;
     }
 
-    static setEnabled(enabled) {
+    static setEnabled(enabled: boolean) {
         Keyboard.enabled = enabled;
 
         if (!enabled) {

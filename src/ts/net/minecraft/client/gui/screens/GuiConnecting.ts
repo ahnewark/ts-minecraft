@@ -2,10 +2,10 @@ import GuiScreen from "../GuiScreen.js";
 import GuiButton from "../widgets/GuiButton.js";
 import NetworkManager from "../../../../../../js/net/minecraft/client/network/NetworkManager.js";
 import HandshakePacket from "../../../../../../js/net/minecraft/client/network/packet/handshake/client/HandshakePacket.js";
-import ProtocolState from "../../../../../../js/net/minecraft/client/network/ProtocolState.js";
 import NetworkLoginHandler from "../../../../../../js/net/minecraft/client/network/handler/NetworkLoginHandler.js";
 import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
 import LoginStartPacket from "../../../../../../js/net/minecraft/client/network/packet/login/client/LoginStartPacket.js";
+import ProtocolState from "../../network/ProtocolState.js";
 
 export default class GuiConnecting extends GuiScreen {
 

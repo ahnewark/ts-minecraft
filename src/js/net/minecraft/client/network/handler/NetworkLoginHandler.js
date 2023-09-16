@@ -4,7 +4,7 @@ import CryptManager from "../util/CryptManager.js";
 import GuiDisconnected from "../../../../../../ts/net/minecraft/client/gui/screens/GuiDisconnected.js";
 import Authentication from "../util/Authentication.js";
 import NetworkPlayHandler from "./NetworkPlayHandler.js";
-import ProtocolState from "../ProtocolState.js";
+import ProtocolState from "../../../../../../ts/net/minecraft/client/network/ProtocolState.js";
 
 export default class NetworkLoginHandler extends PacketHandler {
 

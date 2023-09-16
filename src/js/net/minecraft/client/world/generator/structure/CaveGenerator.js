@@ -1,4 +1,4 @@
-import Random from "../../../../util/Random.js";
+import Random from "../../../../../../../ts/net/minecraft/client/util/Random.js";
 import {BlockRegistry} from "../../../../../../../ts/net/minecraft/client/world/block/BlockRegistry.js";
 import Generator from "../Generator.js";
 

@@ -1,5 +1,5 @@
-import Packet from "../../../Packet.js";
-import GameProfile from "../../../../../util/GameProfile.js";
+import Packet from "../../../../../../../../ts/net/minecraft/client/network/Packet.js";
+import GameProfile from "../../../../../../../../ts/net/minecraft/client/util/GameProfile.js";
 
 export default class ServerPlayerListEntryPacket extends Packet {
 

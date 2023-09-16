@@ -1,4 +1,4 @@
-import Timer from "../util/Timer.js";
+import Timer from "../../../../ts/net/minecraft/client/util/Timer.js";
 import GameSettings from "./GameSettings.js";
 import GameWindow from "./GameWindow.js";
 import WorldRenderer from "./render/WorldRenderer.js";
@@ -17,10 +17,10 @@ import * as THREE from "three";
 import ParticleRenderer from "./render/particle/ParticleRenderer.js";
 import GuiChat from "../../../../ts/net/minecraft/client/gui/screens/GuiChat.js";
 import GuiContainerCreative from "../../../../ts/net/minecraft/client/gui/screens/container/GuiContainerCreative.js";
-import GameProfile from "../util/GameProfile.js";
-import UUID from "../util/UUID.js";
+import GameProfile from "../../../../ts/net/minecraft/client/util/GameProfile.js";
+import UUID from "../../../../ts/net/minecraft/client/util/UUID.js";
 import FocusStateType from "../util/FocusStateType.js";
-import Session from "../util/Session.js";
+import Session from "../../../../ts/net/minecraft/client/util/Session.js";
 import PlayerControllerMultiplayer from "./network/controller/PlayerControllerMultiplayer.js";
 import CommandHandler from "../../../../ts/net/minecraft/client/command/CommandHandler.js";
 

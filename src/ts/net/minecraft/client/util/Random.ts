@@ -4,6 +4,14 @@ export default class Random {
 
     static instances = 0;
 
+    private seed: Long;
+    private multiplier: Long;
+    private mask: Long;
+    private addend: Long;
+    private doubleUnit: number;
+    private maxInt: Long;
+    private intMask: Long;
+
     constructor(seed = Date.now() % 1000000000 ^ Random.instances++ * 1000) {
         this.multiplier = Long.fromString("25214903917");
         this.mask = Long.fromInt(1).shiftLeft(48).subtract(1);
@@ -15,7 +23,7 @@ export default class Random {
         this.setSeed(seed);
     }
 
-    nextBytes(bytes, length) {
+    nextBytes(bytes: number[], length: number) {
         let i = 0;
         while (i < length) {
             let rnd = this.nextInt();
@@ -59,7 +67,7 @@ export default class Random {
         return this.next(32).shiftLeft(32).add(this.next(32));
     }
 
-    next(bits) {
+    next(bits: number) {
         let oldSeed;
         let nextSeed;
         do {
@@ -71,7 +79,7 @@ export default class Random {
         return num.greaterThan(this.maxInt) ? num.or(this.intMask) : num; // Cast to integer
     }
 
-    _compareAndSet(expect, update) {
+    _compareAndSet(expect: Long, update: Long) {
         if (!this.seed.equals(expect)) {
             return false;
         }
@@ -80,7 +88,7 @@ export default class Random {
         return true;
     }
 
-    setSeed(n) {
+    setSeed(n: number | Long | string) {
         let long;
 
         if (typeof n === "number") {

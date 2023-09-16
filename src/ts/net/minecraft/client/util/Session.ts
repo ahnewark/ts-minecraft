@@ -2,12 +2,15 @@ import GameProfile from "./GameProfile.js";
 
 export default class Session {
 
-    constructor(profile, accessToken) {
+    private profile: GameProfile;
+    private accessToken: string;
+
+    constructor(profile: GameProfile, accessToken: string) {
         this.profile = profile;
         this.accessToken = accessToken;
     }
 
-    setAccessToken(accessToken) {
+    setAccessToken(accessToken: string) {
         this.accessToken = accessToken;
     }
 
@@ -29,7 +32,7 @@ export default class Session {
         });
     }
 
-    static fromJson(json) {
+    static fromJson(json: string) {
         let data = JSON.parse(json);
         return new Session(new GameProfile(data.profile.uuid, data.profile.username), data.accessToken);
     }

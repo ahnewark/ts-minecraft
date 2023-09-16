@@ -3,7 +3,10 @@ import Random from "./Random.js";
 
 export default class UUID {
 
-    constructor(msb, lsb) {
+    private mostSigBits: Long;
+    private leastSigBits: Long;
+
+    constructor(msb: Long, lsb: Long) {
         this.mostSigBits = msb;
         this.leastSigBits = lsb;
     }
@@ -27,7 +30,7 @@ export default class UUID {
     static randomUUID() {
         let random = new Random();
 
-        let randomBytes = [];
+        let randomBytes: number[] = [];
         random.nextBytes(randomBytes, 16);
         randomBytes[6] &= 0x0f;  /* clear version        */
         randomBytes[6] |= 0x40;  /* set to version 4     */
@@ -36,20 +39,22 @@ export default class UUID {
         return UUID.fromBytes(randomBytes);
     }
 
-    static digits(val, digits) {
+    static digits(val: Long, digits: number) {
         let hi = Long.fromInt(1).shiftLeft(Long.fromInt(digits).multiply(4));
         let num = hi.or(val.and(hi.add(Long.fromInt(-1))));
         return num.toString(16).substr(1);
     }
 
-    static fromString(string) {
-        let components = string.split("-");
-        if (components.length !== 5) {
+    static fromString(string: string) {
+        let stringComponents = string.split("-");
+        if (stringComponents.length !== 5) {
             throw new Error("Invalid UUID string: " + string);
         }
 
+        let components = [];
+
         for (let i = 0; i < 5; i++) {
-            components[i] = parseInt(components[i], 16);
+            components[i] = parseInt(stringComponents[i], 16);
         }
 
         let mostSigBits = Long.fromNumber(components[0]);
@@ -65,7 +70,7 @@ export default class UUID {
         return new UUID(mostSigBits, leastSigBits);
     }
 
-    static fromBytes(data) {
+    static fromBytes(data: number[]) {
         let msb = Long.fromNumber(0);
         let lsb = Long.fromNumber(0);
         for (let i = 0; i < 8; i++) {

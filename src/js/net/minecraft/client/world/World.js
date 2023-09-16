@@ -1,13 +1,13 @@
 import ChunkSection from "./ChunkSection.js";
-import MathHelper from "../../util/MathHelper.js";
+import MathHelper from "../../../../../ts/net/minecraft/client/util/MathHelper.js";
 import BoundingBox from "../../util/BoundingBox.js";
 import EnumSkyBlock from "../../util/EnumSkyBlock.js";
 import Block from "./block/Block.js";
 import EnumBlockFace from "../../util/EnumBlockFace.js";
-import Vector3 from "../../util/Vector3.js";
-import Vector4 from "../../util/Vector4.js";
-import MetadataChunkBlock from "../../util/MetadataChunkBlock.js";
+import Vector3 from "../../../../../ts/net/minecraft/client/util/Vector3.js";
+import MetadataChunkBlock from "../../../../../ts/net/minecraft/client/util/MetadataChunkBlock.js";
 import * as THREE from "three";
+import Vector4 from "../../../../../ts/net/minecraft/client/util/Vector4.js";
 
 export default class World {
 

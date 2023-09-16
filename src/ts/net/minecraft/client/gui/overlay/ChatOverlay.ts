@@ -1,7 +1,7 @@
 import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
 import GuiChat from "../screens/GuiChat.js";
 import ChatLine from "../../../../../../js/net/minecraft/util/ChatLine";
-import MathHelper from "../../../../../../js/net/minecraft/util/MathHelper";
+import MathHelper from "../../util/MathHelper.js";
 import Gui from "../Gui";
 
 export default class ChatOverlay extends Gui {

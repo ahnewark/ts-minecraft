@@ -1,8 +1,8 @@
 import ByteBuf from "./util/ByteBuf.js";
 import PacketRegistry from "./PacketRegistry.js";
-import ProtocolState from "./ProtocolState.js";
-import MissingPackets from "../../util/MissingPackets.js";
+import MissingPackets from "../../../../../ts/net/minecraft/client/util/MissingPackets.js";
 import pako from "pako";
+import ProtocolState from "../../../../../ts/net/minecraft/client/network/ProtocolState.js";
 
 export default class NetworkManager {
 

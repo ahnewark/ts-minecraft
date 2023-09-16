@@ -1,4 +1,4 @@
-import Vector3 from "../../../../util/Vector3.js";
+import Vector3 from "../../../../../../../ts/net/minecraft/client/util/Vector3.js";
 
 export default class Vertex {
 

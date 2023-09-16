@@ -1,4 +1,4 @@
-import Random from "../../../util/Random.js";
+import Random from "../../../../../../ts/net/minecraft/client/util/Random.js";
 import ByteBuf from "./ByteBuf.js";
 import { parse } from "asn1.js"
 

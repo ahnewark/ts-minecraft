@@ -1,4 +1,4 @@
-import Packet from "../../../Packet.js";
+import Packet from "../../../../../../../../ts/net/minecraft/client/network/Packet.js";
 
 export default class ServerAnimationPacket extends Packet {
 

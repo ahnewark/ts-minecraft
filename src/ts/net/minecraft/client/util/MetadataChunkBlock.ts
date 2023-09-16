@@ -1,10 +1,18 @@
-import Block from "../client/world/block/Block.js";
-import EnumSkyBlock from "./EnumSkyBlock.js";
-import World from "../client/world/World.js";
+import Block from "../../../../../js/net/minecraft/client/world/block/Block.js";
+import EnumSkyBlock from "../../../../../js/net/minecraft/util/EnumSkyBlock.js";
+import World from "../../../../../js/net/minecraft/client/world/World.js";
 
 export default class MetadataChunkBlock {
 
-    constructor(type, x1, y1, z1, x2, y2, z2) {
+    private type: EnumSkyBlock;
+    private x1: number;
+    private y1: number;
+    private z1: number;
+    private x2: number;
+    private y2: number;
+    private z2: number;
+
+    constructor(type: EnumSkyBlock, x1: number, y1: number, z1: number, x2: number, y2: number, z2: number) {
         this.type = type;
         this.x1 = x1;
         this.y1 = y1;
@@ -14,7 +22,7 @@ export default class MetadataChunkBlock {
         this.z2 = z2;
     }
 
-    updateBlockLightning(world) {
+    updateBlockLightning(world: World) {
         let centerX = (this.x2 - this.x1) + 1;
         let centerY = (this.y2 - this.y1) + 1;
         let centerZ = (this.z2 - this.z1) + 1;
@@ -122,7 +130,7 @@ export default class MetadataChunkBlock {
         }
     }
 
-    isOutsideOf(x1, y1, z1, x2, y2, z2) {
+    isOutsideOf(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number) {
         if (x1 >= this.x1 && y1 >= this.y1 && z1 >= this.z1 && x2 <= this.x2 && y2 <= this.y2 && z2 <= this.z2) {
             return true;
         }

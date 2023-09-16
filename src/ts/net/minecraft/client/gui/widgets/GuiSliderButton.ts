@@ -1,5 +1,5 @@
 import GuiButton from "./GuiButton.js";
-import MathHelper from "../../../../../../js/net/minecraft/util/MathHelper.js";
+import MathHelper from "../../util/MathHelper.js";
 
 export default class GuiSliderButton extends GuiButton<number> {
 

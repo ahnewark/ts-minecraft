@@ -1,20 +1,24 @@
 export default class Vector3 {
 
+    public x: number;
+    public y: number;
+    public z: number;
+
     constructor(x = 0, y = 0, z = 0) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    addVector(x, y, z) {
+    addVector(x: number, y: number, z: number) {
         return new Vector3(this.x + x, this.y + y, this.z + z);
     }
 
-    distanceTo(vec) {
+    distanceTo(vec: Vector3) {
         return Math.sqrt(this.squareDistanceTo(vec));
     }
 
-    squareDistanceTo(vec) {
+    squareDistanceTo(vec: Vector3) {
         let d0 = vec.x - this.x;
         let d1 = vec.y - this.y;
         let d2 = vec.z - this.z;
@@ -25,7 +29,7 @@ export default class Vector3 {
      * Returns a new vector with x value equal to the second parameter, along the line between this vector and the
      * passed in vector, or null if not possible.
      */
-    getIntermediateWithXValue(vec, x) {
+    getIntermediateWithXValue(vec: Vector3, x: number) {
         let d0 = vec.x - this.x;
         let d1 = vec.y - this.y;
         let d2 = vec.z - this.z;
@@ -42,7 +46,7 @@ export default class Vector3 {
      * Returns a new vector with y value equal to the second parameter, along the line between this vector and the
      * passed in vector, or null if not possible.
      */
-    getIntermediateWithYValue(vec, y) {
+    getIntermediateWithYValue(vec: Vector3, y: number) {
         let d0 = vec.x - this.x;
         let d1 = vec.y - this.y;
         let d2 = vec.z - this.z;
@@ -59,7 +63,7 @@ export default class Vector3 {
      * Returns a new vector with z value equal to the second parameter, along the line between this vector and the
      * passed in vector, or null if not possible.
      */
-    getIntermediateWithZValue(vec, z) {
+    getIntermediateWithZValue(vec: Vector3, z: number) {
         let d0 = vec.x - this.x;
         let d1 = vec.y - this.y;
         let d2 = vec.z - this.z;
@@ -79,7 +83,7 @@ export default class Vector3 {
      * @param partialTicks Interpolation progress
      * @return Interpolated vector between the two positions
      */
-    interpolateTo(vector, partialTicks) {
+    interpolateTo(vector: Vector3, partialTicks: number) {
         let interpolatedX = this.x + (vector.x - this.x) * partialTicks;
         let interpolatedY = this.y + (vector.y - this.y) * partialTicks;
         let interpolatedZ = this.z + (vector.z - this.z) * partialTicks;

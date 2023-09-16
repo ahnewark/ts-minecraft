@@ -1,7 +1,7 @@
 import Long from "long";
 import BlockPosition from "../../../util/BlockPosition.js";
-import UUID from "../../../util/UUID.js";
-import Vector3 from "../../../util/Vector3.js";
+import UUID from "../../../../../../ts/net/minecraft/client/util/UUID.js";
+import Vector3 from "../../../../../../ts/net/minecraft/client/util/Vector3.js";
 import NBTIO from "../../../nbt/NBTIO.js";
 import format from "mc-chat-format";
 

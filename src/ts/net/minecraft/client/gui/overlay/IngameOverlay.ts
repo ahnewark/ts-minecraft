@@ -3,11 +3,11 @@ import Block from "../../../../../../js/net/minecraft/client/world/block/Block.j
 import ChatOverlay from "./ChatOverlay.js";
 import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
 import EnumBlockFace from "../../../../../../js/net/minecraft/util/EnumBlockFace.js";
-import MathHelper from "../../../../../../js/net/minecraft/util/MathHelper.js";
+import MathHelper from "../../util/MathHelper.js";
 import FontRenderer from "../../../../../../js/net/minecraft/client/render/gui/FontRenderer.js";
 import EnumSkyBlock from "../../../../../../js/net/minecraft/util/EnumSkyBlock.js";
 import PlayerListOverlay from "./PlayerListOverlay.js";
-import Keyboard from "../../../../../../js/net/minecraft/util/Keyboard.js";
+import Keyboard from "../../util/Keyboard.js";
 import GameWindow from "../../../../../../js/net/minecraft/client/GameWindow.js";
 
 export default class IngameOverlay extends Gui {

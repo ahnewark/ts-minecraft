@@ -1,5 +1,5 @@
 import Entity from "./Entity.js";
-import MathHelper from "../../../../../js/net/minecraft/util/MathHelper.js";
+import MathHelper from "../util/MathHelper.js";
 import Minecraft from "../../../../../js/net/minecraft/client/Minecraft.js";
 import World from "../../../../../js/net/minecraft/client/world/World.js";
 

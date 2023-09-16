@@ -1,6 +1,6 @@
 import ChunkProvider from "./ChunkProvider.js";
 import WorldGenerator from "../generator/WorldGenerator.js";
-import Random from "../../../util/Random.js";
+import Random from "../../../../../../ts/net/minecraft/client/util/Random.js";
 
 export default class ChunkProviderGenerate extends ChunkProvider {
 

@@ -1,6 +1,11 @@
+import UUID from "./UUID";
+
 export default class GameProfile {
 
-    constructor(uuid, username) {
+    public uuid: UUID;
+    public username: string;
+
+    constructor(uuid: UUID, username: string) {
         this.uuid = uuid;
         this.username = username;
     }

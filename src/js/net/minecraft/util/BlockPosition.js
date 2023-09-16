@@ -1,4 +1,4 @@
-import Vector3 from "./Vector3.js";
+import Vector3 from "../../../../ts/net/minecraft/client/util/Vector3.js";
 import Long from "long";
 
 export default class BlockPosition extends Vector3 {

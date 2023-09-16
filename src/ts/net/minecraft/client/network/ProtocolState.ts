@@ -4,7 +4,9 @@ export default class ProtocolState {
     static STATUS = new ProtocolState(1);
     static LOGIN = new ProtocolState(2);
 
-    constructor(id) {
+    private id: number;
+
+    constructor(id: number) {
         this.id = id;
     }
 
@@ -28,7 +30,7 @@ export default class ProtocolState {
     }
 
 
-    static fromId(id) {
+    static fromId(id: number) {
         for (let state of this.values()) {
             if (state.getId() === id) {
                 return state;

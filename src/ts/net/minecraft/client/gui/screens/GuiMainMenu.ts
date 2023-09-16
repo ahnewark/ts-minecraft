@@ -3,7 +3,7 @@ import GuiButton from "../widgets/GuiButton.js";
 import GuiOptions from "./GuiOptions.js";
 import * as THREE from "three";
 import {BackSide} from "three";
-import MathHelper from "../../../../../../js/net/minecraft/util/MathHelper.js";
+import MathHelper from "../../util/MathHelper.js";
 import Minecraft from "../../../../../../js/net/minecraft/client/Minecraft.js";
 import GuiCreateWorld from "./GuiCreateWorld.js";
 import GuiDirectConnect from "./GuiDirectConnect.js";

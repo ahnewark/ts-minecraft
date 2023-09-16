@@ -1,11 +1,11 @@
 import BlockRenderer from "./BlockRenderer.js";
 import EntityRenderManager from "./entity/EntityRenderManager.js";
-import MathHelper from "../../util/MathHelper.js";
+import MathHelper from "../../../../../ts/net/minecraft/client/util/MathHelper.js";
 import Block from "../world/block/Block.js";
 import Tessellator from "./Tessellator.js";
 import ChunkSection from "../world/ChunkSection.js";
-import Random from "../../util/Random.js";
-import Vector3 from "../../util/Vector3.js";
+import Random from "../../../../../ts/net/minecraft/client/util/Random.js";
+import Vector3 from "../../../../../ts/net/minecraft/client/util/Vector3.js";
 import * as THREE from "three";
 
 export default class WorldRenderer {

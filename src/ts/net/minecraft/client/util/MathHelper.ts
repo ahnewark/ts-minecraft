@@ -1,26 +1,25 @@
 export default class MathHelper {
 
-    static clamp(number, min, max) {
+    static clamp(number: number, min: number, max: number) {
         return Math.min(Math.max(number, min), max);
     }
 
     /**
      * Returns the greatest integer less than or equal to the double argument
      */
-    static floor(value) {
-        let i = parseInt(value);
-        return value < i ? i - 1 : i;
+    static floor(value: number) {
+        return Math.floor(value);
     }
 
-    static toDegrees(angle) {
+    static toDegrees(angle: number) {
         return angle * (180 / Math.PI);
     }
 
-    static toRadians(degree) {
+    static toRadians(degree: number) {
         return degree * (Math.PI / 180);
     }
 
-    static calculateCelestialAngle(time, partialTicks) {
+    static calculateCelestialAngle(time: number, partialTicks: number) {
         let modTime = (time % 24000);
         let angle = (modTime + partialTicks) / 24000.0 - 0.25;
 
@@ -37,7 +36,7 @@ export default class MathHelper {
         return angle;
     }
 
-    static wrapAngleTo180(value) {
+    static wrapAngleTo180(value: number) {
         value = value % 360.0;
         if (value >= 180.0) {
             value -= 360.0;
@@ -48,7 +47,7 @@ export default class MathHelper {
         return value;
     }
 
-    static hsbToRgb(hue, saturation, brightness) {
+    static hsbToRgb(hue: number, saturation: number, brightness: number) {
         let r = 0, g = 0, b = 0;
         if (saturation === 0) {
             r = g = b = Math.floor(brightness * 255.0 + 0.5);
@@ -94,7 +93,7 @@ export default class MathHelper {
         return 0xff000000 | (r << 16) | (g << 8) | (b << 0);
     }
 
-    static rgb2hsv(r, g, b) {
+    static rgb2hsv(r: number, g: number, b: number) {
         let v = Math.max(r, g, b), c = v - Math.min(r, g, b);
         let h = c && ((v === r) ? (g - b) / c : ((v === g) ? 2 + (b - r) / c : 4 + (r - g) / c));
         return [60 * (h < 0 ? h + 6 : h), v && c / v, v];

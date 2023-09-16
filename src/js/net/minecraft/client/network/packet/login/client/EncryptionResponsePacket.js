@@ -1,4 +1,4 @@
-import Packet from "../../../Packet.js";
+import Packet from "../../../../../../../../ts/net/minecraft/client/network/Packet.js";
 import CryptManager from "../../../util/CryptManager.js";
 
 export default class EncryptionResponsePacket extends Packet {

@@ -1,5 +1,7 @@
 export default class MissingPackets {
 
+    private table: { [id: number]: string }
+
     constructor() {
         this.table = {};
 
@@ -79,11 +81,11 @@ export default class MissingPackets {
         this.map(73, "ServerEntityNBTUpdatePacket");
     }
 
-    map(id, name) {
+    map(id: number, name: string) {
         this.table[id] = name;
     }
 
-    get(id) {
+    get(id: number) {
         return this.table[id];
     }
 

@@ -1,6 +1,6 @@
 import BlockRenderType from "../../../util/BlockRenderType.js";
 import EnumBlockFace from "../../../util/EnumBlockFace.js";
-import MovingObjectPosition from "../../../util/MovingObjectPosition.js";
+import MovingObjectPosition from "../../../../../../ts/net/minecraft/client/util/MovingObjectPosition.js";
 import BoundingBox from "../../../util/BoundingBox.js";
 
 export default class Block {

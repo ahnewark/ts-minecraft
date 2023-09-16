@@ -3,8 +3,8 @@ import EntityRenderer from "../../../../../js/net/minecraft/client/render/entity
 import World from "../../../../../js/net/minecraft/client/world/World";
 import { BlockRegistry } from "../world/block/BlockRegistry";
 import BoundingBox from "../../../../../js/net/minecraft/util/BoundingBox";
-import MathHelper from "../../../../../js/net/minecraft/util/MathHelper";
-import Random from "../../../../../js/net/minecraft/util/Random";
+import MathHelper from "../util/MathHelper";
+import Random from "../util/Random";
 
 export type EntityMetadata = {id: number, type: number, value: number};
 

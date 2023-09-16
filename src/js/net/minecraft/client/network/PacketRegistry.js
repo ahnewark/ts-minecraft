@@ -1,4 +1,4 @@
-import ProtocolState from "./ProtocolState.js";
+import ProtocolState from "../../../../../ts/net/minecraft/client/network/ProtocolState.js";
 import HandshakePacket from "./packet/handshake/client/HandshakePacket.js";
 import StatusQueryPacket from "./packet/status/client/StatusQueryPacket.js";
 import LoginStartPacket from "./packet/login/client/LoginStartPacket.js";

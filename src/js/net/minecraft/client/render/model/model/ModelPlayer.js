@@ -1,5 +1,5 @@
 import ModelRenderer from "../renderer/ModelRenderer.js";
-import MathHelper from "../../../../util/MathHelper.js";
+import MathHelper from "../../../../../../../ts/net/minecraft/client/util/MathHelper.js";
 import ModelBase from "../ModelBase.js";
 
 export default class ModelPlayer extends ModelBase {

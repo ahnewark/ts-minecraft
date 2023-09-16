@@ -1,4 +1,4 @@
-import Packet from "../../../Packet.js";
+import Packet from "../../../../../../../../ts/net/minecraft/client/network/Packet.js";
 import ServerChunkDataPacket from "./ServerChunkDataPacket.js";
 
 export default class ServerMultiChunkDataPacket extends Packet {

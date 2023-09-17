@@ -1,5 +1,5 @@
 import Timer from "../../../../ts/net/minecraft/client/util/Timer.js";
-import GameSettings from "./GameSettings.js";
+import GameSettings from "../../../../ts/net/minecraft/client/GameSettings.js";
 import GameWindow from "./GameWindow.js";
 import WorldRenderer from "./render/WorldRenderer.js";
 import ScreenRenderer from "./render/gui/ScreenRenderer.js";
